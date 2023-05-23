@@ -1,0 +1,23 @@
+{
+  "id": "loading",
+  "type": "SharedSlice",
+  "name": "Loading",
+  "description": "Loading",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

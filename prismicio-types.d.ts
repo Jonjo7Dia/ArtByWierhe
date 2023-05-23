@@ -6,14 +6,14 @@ import type * as prismicClient from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Loading Page documents */
-interface LoadingPageDocumentData {
+/** Content for Page documents */
+interface PageDocumentData {
   /**
-   * Title field in *Loading Page*
+   * Title field in *Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: loading_page.title
+   * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
@@ -21,21 +21,17 @@ interface LoadingPageDocumentData {
   title: prismic.KeyTextField;
 }
 /**
- * Loading Page document from Prismic
+ * Page document from Prismic
  *
- * - **API ID**: `loading_page`
- * - **Repeatable**: `false`
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type LoadingPageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<LoadingPageDocumentData>,
-    "loading_page",
-    Lang
-  >;
-export type AllDocumentTypes = LoadingPageDocument;
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<PageDocumentData>, "page", Lang>;
+export type AllDocumentTypes = PageDocument;
 /**
  * Primary content in ImagesHero → Primary
  *
@@ -98,6 +94,52 @@ export type ImagesHeroSlice = prismic.SharedSlice<
   "images_hero",
   ImagesHeroSliceVariation
 >;
+/**
+ * Primary content in Loading → Primary
+ *
+ */
+interface LoadingSliceDefaultPrimary {
+  /**
+   * Title field in *Loading → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: loading.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismic.KeyTextField;
+}
+/**
+ * Default variation for Loading Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LoadingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LoadingSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Loading*
+ *
+ */
+type LoadingSliceVariation = LoadingSliceDefault;
+/**
+ * Loading Shared Slice
+ *
+ * - **API ID**: `loading`
+ * - **Description**: `Loading`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LoadingSlice = prismic.SharedSlice<
+  "loading",
+  LoadingSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -107,14 +149,18 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
-      LoadingPageDocumentData,
-      LoadingPageDocument,
+      PageDocumentData,
+      PageDocument,
       AllDocumentTypes,
       ImagesHeroSliceDefaultPrimary,
       ImagesHeroSliceDefaultItem,
       ImagesHeroSliceDefault,
       ImagesHeroSliceVariation,
       ImagesHeroSlice,
+      LoadingSliceDefaultPrimary,
+      LoadingSliceDefault,
+      LoadingSliceVariation,
+      LoadingSlice,
     };
   }
 }

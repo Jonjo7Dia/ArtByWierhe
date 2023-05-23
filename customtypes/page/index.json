@@ -1,7 +1,7 @@
 {
-  "id": "loading_page",
-  "label": "Loading Page",
-  "repeatable": false,
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
