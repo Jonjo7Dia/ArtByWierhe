@@ -1,11 +1,16 @@
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
-
+import Layout from "components/Layout";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../slices";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page }: PageProps) {
-  console.log(page);
-  return <div>hello</div>;
+  return (
+    <Layout>
+      <SliceZone slices={page.data.slices} components={components} />{" "}
+    </Layout>
+  );
 }
 
 export async function getStaticProps({ previewData }: GetStaticPropsContext) {
