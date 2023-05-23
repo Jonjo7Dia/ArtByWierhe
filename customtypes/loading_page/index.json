@@ -1,0 +1,14 @@
+{
+  "id": "loading_page",
+  "label": "Loading Page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "repositoryName": "artbyweirhe",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}
