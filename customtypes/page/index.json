@@ -8,6 +8,12 @@
       "title": {
         "type": "Text",
         "config": { "label": "Title", "placeholder": "" }
+      },
+      "uid": { "type": "UID", "config": { "label": "id", "placeholder": "" } },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "loading": { "type": "SharedSlice" } } }
       }
     }
   }

@@ -19,7 +19,23 @@ interface PageDocumentData {
    *
    */
   title: prismic.KeyTextField;
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = LoadingSlice;
 /**
  * Page document from Prismic
  *
@@ -30,7 +46,7 @@ interface PageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type PageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<PageDocumentData>, "page", Lang>;
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 export type AllDocumentTypes = PageDocument;
 /**
  * Primary content in ImagesHero → Primary
@@ -150,6 +166,7 @@ declare module "@prismicio/client" {
   namespace Content {
     export type {
       PageDocumentData,
+      PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
       ImagesHeroSliceDefaultPrimary,
