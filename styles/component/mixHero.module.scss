@@ -1,0 +1,67 @@
+@import "../main/variables.scss";
+
+.mixHero {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__portrait {
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    &--left {
+      right: 0;
+      left: unset;
+    }
+    width: rem(115px);
+    height: rem(187px);
+
+    @include breakpoint(xs) {
+      width: rem(143px);
+      height: rem(233px);
+    }
+    @include breakpoint(sm) {
+      width: rem(227px);
+      height: rem(370px);
+    }
+
+    @include breakpoint(md) {
+      width: rem(283px);
+      height: rem(462px);
+    }
+
+    @include breakpoint(xl) {
+      width: rem(337px);
+      height: rem(550px);
+    }
+  }
+  &__landscape {
+    background-color: red;
+    width: rem(160px);
+    height: rem(127px);
+
+    @include breakpoint(xs) {
+      width: rem(200px);
+      height: rem(158px);
+    }
+    @include breakpoint(sm) {
+      width: rem(316px);
+      height: rem(250px);
+    }
+
+    @include breakpoint(md) {
+      width: rem(395px);
+      height: rem(311px);
+    }
+
+    @include breakpoint(xl) {
+      width: rem(470px);
+      height: rem(370px);
+    }
+  }
+}

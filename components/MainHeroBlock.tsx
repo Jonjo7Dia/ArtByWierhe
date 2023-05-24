@@ -1,12 +1,29 @@
 import classes from "styles/component/mainHeroBlock.module.scss";
-
+import MixHero from "./HeroVariations.tsx/MixHero";
+import SingleLandscapeHero from "./HeroVariations.tsx/SingleLandscapeHero";
+import TriplePortrait from "./HeroVariations.tsx/TriplePortrait";
 export default function HeroBlock({ slice }: any) {
   const order = slice.primary.order != null ? slice.primary.order - 1 : 0;
   const variation = slice.variation;
   console.log(variation);
   return (
     <div className={classes["mainHero"]} style={{ zIndex: order }}>
-      <div className={classes["mainHero__wrapper"]}></div>
+      {variation === "default" && (
+        <div className={classes["mainHero__wrapper"]}>
+          <SingleLandscapeHero />
+        </div>
+      )}
+      {variation === "threePortraitBackground" && (
+        <div className={classes["mainHero__wrapper"]}>
+          {" "}
+          <TriplePortrait />
+        </div>
+      )}
+      {variation === "backgroundImageMix" && (
+        <div className={classes["mainHero__wrapper"]}>
+          <MixHero />
+        </div>
+      )}
     </div>
   );
 }

@@ -9,10 +9,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 
   &__wrapper {
-    width: rem(700px);
-    height: rem(500px);
+    width: rem(350px);
+    height: rem(300px);
     border: solid black 1px;
+
+    @include breakpoint(xs) {
+      width: rem(450px);
+      height: rem(300px);
+    }
+
+    @include breakpoint(sm) {
+      width: rem(720px);
+      height: rem(440px);
+    }
+    @include breakpoint(md) {
+      width: rem(900px);
+      height: rem(550px);
+    }
+
+    @include breakpoint(xl) {
+      width: rem(1080px);
+      height: rem(660px);
+    }
   }
 }
