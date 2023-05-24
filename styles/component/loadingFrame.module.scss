@@ -1,1 +1,129 @@
 @import "../main/variables.scss";
+
+.loadingFrame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-color: white;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    text-transform: uppercase;
+    font-family: "Merriweather";
+    font-size: rem(78px);
+  }
+
+  &__shadow {
+    margin-top: rem(5px);
+    width: 80%;
+    height: rem(20px);
+    background-color: rgba(179, 177, 179, 1); /* Start and end color */
+    border-radius: 50%;
+    clip-path: ellipse(70% 20% at 50% 50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    animation: glowing 3s infinite; /* Adjust duration as needed */
+  }
+
+  &__loading {
+    position: fixed;
+    bottom: rem(40px);
+
+    &-text {
+      font-family: "Merriweather";
+      font-size: rem(20px);
+      font-weight: 300;
+      text-transform: uppercase;
+      color: rgba(179, 177, 179, 1);
+      animation: fontGlow 3s infinite;
+    }
+  }
+}
+
+@keyframes glowing {
+  0%,
+  100% {
+    background-color: rgba(179, 177, 179, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  10% {
+    background-color: rgba(237, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(237, 143, 237, 0.8);
+  }
+  20% {
+    background-color: rgba(225, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(225, 143, 237, 0.8);
+  }
+  30% {
+    background-color: rgba(212, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(212, 143, 237, 0.8);
+  }
+  40% {
+    background-color: rgba(199, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(199, 143, 237, 0.8);
+  }
+  50% {
+    background-color: rgba(186, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(186, 143, 237, 0.8);
+  }
+  60% {
+    background-color: rgba(173, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(173, 143, 237, 0.8);
+  }
+  70% {
+    background-color: rgba(160, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(160, 143, 237, 0.8);
+  }
+  80% {
+    background-color: rgba(147, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(147, 143, 237, 0.8);
+  }
+  90% {
+    background-color: rgba(134, 143, 237, 1);
+    box-shadow: 0 2px 10px rgba(134, 143, 237, 0.8);
+  }
+}
+
+@keyframes fontGlow {
+  0%,
+  100% {
+    color: rgba(179, 177, 179, 1);
+  }
+  10% {
+    color: rgba(237, 143, 237, 1);
+  }
+  20% {
+    color: rgba(225, 143, 237, 1);
+  }
+  30% {
+    color: rgba(212, 143, 237, 1);
+  }
+  40% {
+    color: rgba(199, 143, 237, 1);
+  }
+  50% {
+    color: rgba(186, 143, 237, 1);
+  }
+  60% {
+    color: rgba(173, 143, 237, 1);
+  }
+  70% {
+    color: rgba(160, 143, 237, 1);
+  }
+  80% {
+    color: rgba(147, 143, 237, 1);
+  }
+  90% {
+    color: rgba(134, 143, 237, 1);
+  }
+}

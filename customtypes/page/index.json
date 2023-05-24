@@ -13,7 +13,12 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "loading": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "loading": { "type": "SharedSlice" },
+            "images_hero": { "type": "SharedSlice" }
+          }
+        }
       }
     }
   }

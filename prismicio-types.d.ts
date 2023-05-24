@@ -6,6 +6,68 @@ import type * as prismicClient from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for ArtPiece documents */
+interface ArtpieceDocumentData {
+  /**
+   * Art Name field in *ArtPiece*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: artpiece.art_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  art_name: prismic.KeyTextField;
+  /**
+   * Description field in *ArtPiece*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: artpiece.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Type field in *ArtPiece*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: artpiece.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  type: prismic.SelectField<"Landscape" | "Portrait">;
+  /**
+   * Image field in *ArtPiece*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: artpiece.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * ArtPiece document from Prismic
+ *
+ * - **API ID**: `artpiece`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArtpieceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ArtpieceDocumentData>,
+    "artpiece",
+    Lang
+  >;
 /** Content for Page documents */
 interface PageDocumentData {
   /**
@@ -35,7 +97,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = LoadingSlice;
+type PageDocumentDataSlicesSlice = LoadingSlice | ImagesHeroSlice;
 /**
  * Page document from Prismic
  *
@@ -47,38 +109,22 @@ type PageDocumentDataSlicesSlice = LoadingSlice;
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes = ArtpieceDocument | PageDocument;
 /**
  * Primary content in ImagesHero → Primary
  *
  */
 interface ImagesHeroSliceDefaultPrimary {
   /**
-   * Header field in *ImagesHero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: images_hero.primary.header
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  header: prismic.KeyTextField;
-}
-/**
- * Item in ImagesHero → Items
- *
- */
-export interface ImagesHeroSliceDefaultItem {
-  /**
-   * Background Images field in *ImagesHero → Items*
+   * Background Image Landscape field in *ImagesHero → Primary*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: images_hero.items[].background_images
+   * - **API ID Path**: images_hero.primary.background_image_portrait
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  background_images: prismic.RelationField;
+  background_image_portrait: prismic.RelationField<"artpiece">;
 }
 /**
  * Default variation for ImagesHero Slice
@@ -91,13 +137,115 @@ export interface ImagesHeroSliceDefaultItem {
 export type ImagesHeroSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<ImagesHeroSliceDefaultPrimary>,
-  Simplify<ImagesHeroSliceDefaultItem>
+  never
+>;
+/**
+ * Primary content in ImagesHero → Primary
+ *
+ */
+interface ImagesHeroSliceThreePortraitBackgroundPrimary {
+  /**
+   * Background Image Portrait 1 field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_portrait
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_portrait: prismic.RelationField<"artpiece">;
+  /**
+   * Background Image Portrait 2 field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_portrait_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_portrait_2: prismic.RelationField<"artpiece">;
+  /**
+   * Background Image Portrait 3 field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_portrait_3
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_portrait_3: prismic.RelationField<"artpiece">;
+}
+/**
+ * Three Portrait Background variation for ImagesHero Slice
+ *
+ * - **API ID**: `threePortraitBackground`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImagesHeroSliceThreePortraitBackground =
+  prismic.SharedSliceVariation<
+    "threePortraitBackground",
+    Simplify<ImagesHeroSliceThreePortraitBackgroundPrimary>,
+    never
+  >;
+/**
+ * Primary content in ImagesHero → Primary
+ *
+ */
+interface ImagesHeroSliceBackgroundImageMixPrimary {
+  /**
+   * Background Image Portrait 1 field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_portrait
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_portrait: prismic.RelationField<"artpiece">;
+  /**
+   * Background Image Landscape field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_landscape
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_landscape: prismic.RelationField<"artpiece">;
+  /**
+   * Background Image Portrait 2 field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_hero.primary.background_image_portrait_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  background_image_portrait_2: prismic.RelationField<"artpiece">;
+}
+/**
+ * Background Image Mix variation for ImagesHero Slice
+ *
+ * - **API ID**: `backgroundImageMix`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImagesHeroSliceBackgroundImageMix = prismic.SharedSliceVariation<
+  "backgroundImageMix",
+  Simplify<ImagesHeroSliceBackgroundImageMixPrimary>,
+  never
 >;
 /**
  * Slice variation for *ImagesHero*
  *
  */
-type ImagesHeroSliceVariation = ImagesHeroSliceDefault;
+type ImagesHeroSliceVariation =
+  | ImagesHeroSliceDefault
+  | ImagesHeroSliceThreePortraitBackground
+  | ImagesHeroSliceBackgroundImageMix;
 /**
  * ImagesHero Shared Slice
  *
@@ -165,13 +313,18 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      ArtpieceDocumentData,
+      ArtpieceDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
       ImagesHeroSliceDefaultPrimary,
-      ImagesHeroSliceDefaultItem,
       ImagesHeroSliceDefault,
+      ImagesHeroSliceThreePortraitBackgroundPrimary,
+      ImagesHeroSliceThreePortraitBackground,
+      ImagesHeroSliceBackgroundImageMixPrimary,
+      ImagesHeroSliceBackgroundImageMix,
       ImagesHeroSliceVariation,
       ImagesHeroSlice,
       LoadingSliceDefaultPrimary,

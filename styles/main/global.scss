@@ -1,5 +1,5 @@
 @import "./variables";
-
+@import "@fontsource/merriweather";
 /* CSS reset */
 body,
 div,
@@ -80,4 +80,8 @@ q:after {
 abbr,
 acronym {
   border: 0;
+}
+
+main {
+  position: relative;
 }
