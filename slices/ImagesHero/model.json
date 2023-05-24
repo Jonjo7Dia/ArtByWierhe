@@ -19,6 +19,13 @@
             "select": "document",
             "customtypes": ["artpiece"]
           }
+        },
+        "order": {
+          "type": "Number",
+          "config": {
+            "label": "Order",
+            "placeholder": "what order it should come in"
+          }
         }
       },
       "items": {}
@@ -54,6 +61,13 @@
             "select": "document",
             "customtypes": ["artpiece"]
           }
+        },
+        "order": {
+          "type": "Number",
+          "config": {
+            "label": "Order",
+            "placeholder": "which order should it come in"
+          }
         }
       },
       "items": {}
@@ -88,6 +102,13 @@
             "label": "Background Image Portrait 2",
             "select": "document",
             "customtypes": ["artpiece"]
+          }
+        },
+        "order": {
+          "type": "Number",
+          "config": {
+            "label": "Order",
+            "placeholder": "what order it should come in"
           }
         }
       },

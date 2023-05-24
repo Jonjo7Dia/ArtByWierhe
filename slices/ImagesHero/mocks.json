@@ -9,6 +9,11 @@
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"order": {
+				"__TYPE__": "FieldContent",
+				"value": "0",
+				"type": "Number"
 			}
 		},
 		"items": [
@@ -42,6 +47,11 @@
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"order": {
+				"__TYPE__": "FieldContent",
+				"value": "68",
+				"type": "Number"
 			}
 		},
 		"items": [
@@ -75,6 +85,11 @@
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"order": {
+				"__TYPE__": "FieldContent",
+				"value": "74",
+				"type": "Number"
 			}
 		},
 		"items": [

@@ -6,9 +6,10 @@ import { components } from "../slices";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page }: PageProps) {
+  console.log(components);
   return (
     <Layout>
-      <SliceZone slices={page.data.slices} components={components} />{" "}
+      <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );
 }

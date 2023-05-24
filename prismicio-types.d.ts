@@ -125,6 +125,16 @@ interface ImagesHeroSliceDefaultPrimary {
    *
    */
   background_image_portrait: prismic.RelationField<"artpiece">;
+  /**
+   * Order field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: what order it should come in
+   * - **API ID Path**: images_hero.primary.order
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  order: prismic.NumberField;
 }
 /**
  * Default variation for ImagesHero Slice
@@ -174,6 +184,16 @@ interface ImagesHeroSliceThreePortraitBackgroundPrimary {
    *
    */
   background_image_portrait_3: prismic.RelationField<"artpiece">;
+  /**
+   * Order field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: which order should it come in
+   * - **API ID Path**: images_hero.primary.order
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  order: prismic.NumberField;
 }
 /**
  * Three Portrait Background variation for ImagesHero Slice
@@ -224,6 +244,16 @@ interface ImagesHeroSliceBackgroundImageMixPrimary {
    *
    */
   background_image_portrait_2: prismic.RelationField<"artpiece">;
+  /**
+   * Order field in *ImagesHero → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: what order it should come in
+   * - **API ID Path**: images_hero.primary.order
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  order: prismic.NumberField;
 }
 /**
  * Background Image Mix variation for ImagesHero Slice

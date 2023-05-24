@@ -11,7 +11,8 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  background-color: white;
+  //   background-color: white;
+  //   display: none;
 
   &__text {
     display: flex;
@@ -22,6 +23,7 @@
     text-transform: uppercase;
     font-family: "Merriweather";
     font-size: rem(78px);
+    mix-blend-mode: difference;
   }
 
   &__shadow {
