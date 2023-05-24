@@ -12,12 +12,12 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "background_image_portrait": {
-          "type": "Link",
+        "background_landscape": {
+          "type": "Image",
           "config": {
-            "label": "Background Image Landscape",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "label": "Background Landscape",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "order": {
@@ -39,27 +39,27 @@
       "imageUrl": "",
       "primary": {
         "background_image_portrait": {
-          "type": "Link",
+          "type": "Image",
           "config": {
-            "label": "Background Image Portrait 1",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "label": "Background Image Portrait",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "background_image_portrait_2": {
-          "type": "Link",
+          "type": "Image",
           "config": {
             "label": "Background Image Portrait 2",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "background_image_portrait_3": {
-          "type": "Link",
+          "type": "Image",
           "config": {
             "label": "Background Image Portrait 3",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "order": {
@@ -81,27 +81,27 @@
       "imageUrl": "",
       "primary": {
         "background_image_portrait": {
-          "type": "Link",
+          "type": "Image",
           "config": {
-            "label": "Background Image Portrait 1",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "label": "Background Image Portrait",
+            "constraint": {},
+            "thumbnails": []
           }
         },
-        "background_image_landscape": {
-          "type": "Link",
+        "background_landscape": {
+          "type": "Image",
           "config": {
-            "label": "Background Image Landscape",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "label": "Background Landscape",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "background_image_portrait_2": {
-          "type": "Link",
+          "type": "Image",
           "config": {
             "label": "Background Image Portrait 2",
-            "select": "document",
-            "customtypes": ["artpiece"]
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "order": {

@@ -116,15 +116,15 @@ export type AllDocumentTypes = ArtpieceDocument | PageDocument;
  */
 interface ImagesHeroSliceDefaultPrimary {
   /**
-   * Background Image Landscape field in *ImagesHero → Primary*
+   * Background Landscape field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: images_hero.primary.background_image_portrait
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **API ID Path**: images_hero.primary.background_landscape
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait: prismic.RelationField<"artpiece">;
+  background_landscape: prismic.ImageField<never>;
   /**
    * Order field in *ImagesHero → Primary*
    *
@@ -155,35 +155,35 @@ export type ImagesHeroSliceDefault = prismic.SharedSliceVariation<
  */
 interface ImagesHeroSliceThreePortraitBackgroundPrimary {
   /**
-   * Background Image Portrait 1 field in *ImagesHero → Primary*
+   * Background Image Portrait field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: images_hero.primary.background_image_portrait
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait: prismic.RelationField<"artpiece">;
+  background_image_portrait: prismic.ImageField<never>;
   /**
    * Background Image Portrait 2 field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: images_hero.primary.background_image_portrait_2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait_2: prismic.RelationField<"artpiece">;
+  background_image_portrait_2: prismic.ImageField<never>;
   /**
    * Background Image Portrait 3 field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: images_hero.primary.background_image_portrait_3
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait_3: prismic.RelationField<"artpiece">;
+  background_image_portrait_3: prismic.ImageField<never>;
   /**
    * Order field in *ImagesHero → Primary*
    *
@@ -215,35 +215,35 @@ export type ImagesHeroSliceThreePortraitBackground =
  */
 interface ImagesHeroSliceBackgroundImageMixPrimary {
   /**
-   * Background Image Portrait 1 field in *ImagesHero → Primary*
+   * Background Image Portrait field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: images_hero.primary.background_image_portrait
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait: prismic.RelationField<"artpiece">;
+  background_image_portrait: prismic.ImageField<never>;
   /**
-   * Background Image Landscape field in *ImagesHero → Primary*
+   * Background Landscape field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: images_hero.primary.background_image_landscape
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **API ID Path**: images_hero.primary.background_landscape
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_landscape: prismic.RelationField<"artpiece">;
+  background_landscape: prismic.ImageField<never>;
   /**
    * Background Image Portrait 2 field in *ImagesHero → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: images_hero.primary.background_image_portrait_2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  background_image_portrait_2: prismic.RelationField<"artpiece">;
+  background_image_portrait_2: prismic.ImageField<never>;
   /**
    * Order field in *ImagesHero → Primary*
    *
