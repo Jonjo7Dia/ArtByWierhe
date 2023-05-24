@@ -14,7 +14,6 @@
   &__wrapper {
     width: rem(350px);
     height: rem(300px);
-    border: solid black 1px;
 
     @include breakpoint(xs) {
       width: rem(450px);

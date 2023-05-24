@@ -9,7 +9,6 @@
   align-items: center;
 
   &__portrait {
-    background-color: blue;
     position: absolute;
     top: 50%;
     left: 0;
@@ -41,7 +40,6 @@
     }
   }
   &__landscape {
-    background-color: red;
     width: rem(160px);
     height: rem(127px);
 
