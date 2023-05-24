@@ -31,7 +31,11 @@ export default function LoadingFrame({ data }: any) {
     >
       <div className={classes["loadingFrame__text"]}>
         <h1 className={classes["loadingFrame__title"]}>{data.primary.title}</h1>
-        {isLoading && <div className={classes["loadingFrame__shadow"]}></div>}
+        <div
+          className={`${classes["loadingFrame__shadow"]} ${
+            isLoading && classes["loadingFrame__shadow--loading"]
+          }`}
+        ></div>
       </div>
       {isLoading && (
         <div className={classes["loadingFrame__loading"]}>

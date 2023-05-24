@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   z-index: 3;
+  animation: fadeOutBackground 5s linear forwards;
 
   &--loading {
     background-color: white;
@@ -43,11 +44,15 @@
     margin-top: rem(5px);
     width: 80%;
     height: rem(20px);
-    background-color: rgba(179, 177, 179, 1); /* Start and end color */
     border-radius: 50%;
     clip-path: ellipse(70% 20% at 50% 50%);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    animation: glowing 3s infinite; /* Adjust duration as needed */
+    animation: fadeOutShadow 2s linear;
+
+    &--loading {
+      animation: glowing 3s infinite;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    /* Adjust duration as needed */
   }
 
   &__loading {
@@ -140,5 +145,27 @@
   }
   90% {
     color: rgba(134, 143, 237, 1);
+  }
+}
+
+@keyframes fadeOutBackground {
+  0% {
+    backdrop-filter: blur(50px);
+    background-color: rgb(255, 255, 255);
+  }
+  100% {
+    backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes fadeOutShadow {
+  0% {
+    background-color: rgba(179, 177, 179, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: transparent; /* Start and end color */
+    box-shadow: 0;
   }
 }
