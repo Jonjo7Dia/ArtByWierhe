@@ -1,7 +1,6 @@
 import classes from "styles/component/tripleHeroBlock.module.scss";
 import Image from "next/image";
 export default function TriplePortrait({ data }: any) {
-  console.log(data);
   const firstPortait = data.primary.background_image_portrait;
   const secondPortait = data.primary.background_image_portrait_2;
   const thirdPortait = data.primary.background_image_portrait_3;
