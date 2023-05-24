@@ -56,9 +56,12 @@
   }
 
   &__loading {
-    position: fixed;
+    position: absolute;
     bottom: rem(40px);
-
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &-text {
       font-family: "Merriweather";
       font-size: rem(20px);
