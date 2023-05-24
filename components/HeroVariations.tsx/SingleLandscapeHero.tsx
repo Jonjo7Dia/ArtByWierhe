@@ -2,9 +2,9 @@ import classes from "styles/component/defaultHero.module.scss";
 import Image from "next/image";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
 import { useCallback } from "react";
-export default function SingleLandscapeHero({ data }: any) {
+export default function SingleLandscapeHero({ data, order }: any) {
   const image = data.primary.background_landscape;
-  const { incrementLoadedImages } = useImageLoadingContext();
+  const { incrementLoadedImages, totalHeroObjects } = useImageLoadingContext();
 
   const handleImageLoad = useCallback(() => {
     incrementLoadedImages();

@@ -3,6 +3,8 @@ import { createContext, useContext, ReactNode, useState } from "react";
 type ImageLoadingContextType = {
   totalImages: number;
   loadedImages: number;
+  totalHeroObjects: number;
+  setTotalHeroObjects: (total: number) => void;
   incrementLoadedImages: () => void;
   setTotalImages: (total: number) => void;
 };
@@ -18,7 +20,7 @@ type ImageLoadingProviderProps = {
 export function ImageLoadingProvider({ children }: ImageLoadingProviderProps) {
   const [totalImages, setTotalImages] = useState(0);
   const [loadedImages, setLoadedImages] = useState(0);
-
+  const [totalHeroObjects, setTotalHeroObjects] = useState(0);
   const incrementLoadedImages = () => {
     setLoadedImages((prevCount) => prevCount + 1);
   };
@@ -28,6 +30,8 @@ export function ImageLoadingProvider({ children }: ImageLoadingProviderProps) {
       value={{
         totalImages,
         loadedImages,
+        totalHeroObjects,
+        setTotalHeroObjects,
         incrementLoadedImages,
         setTotalImages,
       }}

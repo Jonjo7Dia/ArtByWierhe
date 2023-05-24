@@ -1,18 +1,23 @@
 import classes from "styles/component/mixHero.module.scss";
 import Image from "next/image";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
-export default function MixHero({ data }: any) {
+export default function MixHero({ data, order }: any) {
   const firstPortait = data.primary.background_image_portrait;
   const landscape = data.primary.background_landscape;
   const secondPortait = data.primary.background_image_portrait_2;
-  const { incrementLoadedImages } = useImageLoadingContext();
+  const { incrementLoadedImages, totalHeroObjects } = useImageLoadingContext();
+  let animationStyles;
   const handleImageLoad = useCallback(() => {
     incrementLoadedImages();
   }, [incrementLoadedImages]);
+
+  if (order == totalHeroObjects - 1) {
+    animationStyles = { animation: "fadeOut 1s", animationDelay: "6s" };
+  }
   return (
-    <div className={classes["mixHero"]}>
+    <div className={classes["mixHero"]} style={animationStyles}>
       <div className={classes["mixHero__portrait"]}>
         <Image
           alt={firstPortait.alt}

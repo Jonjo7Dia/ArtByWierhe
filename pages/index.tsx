@@ -11,11 +11,14 @@ import { useEffect } from "react";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 function Page({ page }: PageProps) {
-  const { totalImages, setTotalImages } = useImageLoadingContext();
+  const { totalImages, setTotalImages, totalHeroObjects, setTotalHeroObjects } =
+    useImageLoadingContext();
 
-  const getTotalImages = useCallback((array: Array<any>) => {
-    return array.reduce((total, current) => {
+  const getTotalImagesAndHeroObjects = useCallback((array: Array<any>) => {
+    let heroObjects = 0;
+    const totalImages = array.reduce((total, current) => {
       if (current.id.includes("images_hero")) {
+        heroObjects++;
         if (current.variation === "default") {
           total += 1;
         } else {
@@ -24,13 +27,22 @@ function Page({ page }: PageProps) {
       }
       return total;
     }, 0);
+
+    return { totalImages, heroObjects };
   }, []);
 
   useEffect(() => {
-    setTotalImages(getTotalImages(page.data.slices));
-  }, [page.data.slices, setTotalImages, getTotalImages]);
-
-  console.log(totalImages);
+    const { totalImages, heroObjects } = getTotalImagesAndHeroObjects(
+      page.data.slices
+    );
+    setTotalImages(totalImages);
+    setTotalHeroObjects(heroObjects);
+  }, [
+    page.data.slices,
+    setTotalImages,
+    setTotalHeroObjects,
+    getTotalImagesAndHeroObjects,
+  ]);
 
   return (
     <Layout>
