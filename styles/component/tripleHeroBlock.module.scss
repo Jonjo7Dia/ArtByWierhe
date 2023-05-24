@@ -1,0 +1,34 @@
+@import "../main/variables.scss";
+
+.tripleHero {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__portrait {
+    background-color: blue;
+    width: rem(110px);
+    height: rem(146.67px);
+
+    @include breakpoint(xs) {
+      width: rem(140px);
+      height: rem(186.67px);
+    }
+    @include breakpoint(sm) {
+      width: rem(226.67px);
+      height: rem(302.22px);
+    }
+
+    @include breakpoint(md) {
+      width: rem(286.67px);
+      height: rem(382.22px);
+    }
+
+    @include breakpoint(xl) {
+      width: rem(346.67px);
+      height: rem(462.22px);
+    }
+  }
+}

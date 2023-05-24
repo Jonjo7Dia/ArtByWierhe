@@ -13,17 +13,16 @@ export default function HeroBlock({ slice }: any) {
           <SingleLandscapeHero />
         </div>
       )}
-      {variation === "threePortraitBackground" && (
+      {/* {variation === "threePortraitBackground" && (
         <div className={classes["mainHero__wrapper"]}>
-          {" "}
           <TriplePortrait />
         </div>
-      )}
-      {variation === "backgroundImageMix" && (
+      )} */}
+      {/* {variation === "backgroundImageMix" && (
         <div className={classes["mainHero__wrapper"]}>
           <MixHero />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

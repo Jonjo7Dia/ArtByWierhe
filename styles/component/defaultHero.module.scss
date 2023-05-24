@@ -1,37 +1,33 @@
 @import "../main/variables.scss";
 
-.mainHero {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+.defaultHero {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  //   background-color: white;
 
-  &__wrapper {
+  &__landscape {
+    background-color: blue;
     width: rem(350px);
-    height: rem(300px);
-    border: solid black 1px;
+    height: rem(280px);
 
     @include breakpoint(xs) {
-      width: rem(450px);
+      width: rem(360px);
       height: rem(300px);
     }
 
     @include breakpoint(sm) {
-      width: rem(720px);
+      width: rem(576px);
       height: rem(440px);
     }
     @include breakpoint(md) {
-      width: rem(900px);
+      width: rem(720px);
       height: rem(550px);
     }
 
     @include breakpoint(xl) {
-      width: rem(1080px);
+      width: rem(864px);
       height: rem(660px);
     }
   }
