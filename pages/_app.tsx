@@ -4,6 +4,7 @@ import { PrismicPreview } from "@prismicio/next";
 
 import "../styles/main/global.scss";
 import React from "react";
+import { ImageLoadingProvider } from "contexts/LoadingContext";
 
 interface AppProps {
   Component: React.ComponentType<any>;
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
       <PrismicPreview repositoryName={"artbywierhe"}>
-        <Component {...pageProps} />
+        <ImageLoadingProvider>
+          <Component {...pageProps} />
+        </ImageLoadingProvider>
       </PrismicPreview>
     </PrismicProvider>
   );

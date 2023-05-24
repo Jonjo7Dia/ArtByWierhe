@@ -10,9 +10,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 100;
-  //   background-color: white;
-  //   display: none;
+  z-index: 3;
+
+  &--loading {
+    background-color: white;
+    z-index: 100;
+  }
 
   &__text {
     display: flex;
@@ -23,7 +26,6 @@
     text-transform: uppercase;
     font-family: "Merriweather";
     font-size: rem(32px);
-    mix-blend-mode: difference;
 
     @include breakpoint(xs) {
       font-size: rem(54px);

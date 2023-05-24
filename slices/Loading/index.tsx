@@ -10,7 +10,7 @@ export type LoadingProps = SliceComponentProps<Content.LoadingSlice>;
  * Component for "Loading" Slices.
  */
 const Loading = ({ slice }: LoadingProps): JSX.Element => {
-  return <LoadingFrame isLoading={true} data={slice} />;
+  return <LoadingFrame data={slice} />;
 };
 
 export default Loading;
