@@ -68,6 +68,40 @@ export type ArtpieceDocument<Lang extends string = string> =
     "artpiece",
     Lang
   >;
+/** Content for Navigation documents */
+interface NavigationDocumentData {
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Navigation → Slice Zone*
+ *
+ */
+type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
 /** Content for Page documents */
 interface PageDocumentData {
   /**
@@ -109,7 +143,10 @@ type PageDocumentDataSlicesSlice = LoadingSlice | ImagesHeroSlice;
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-export type AllDocumentTypes = ArtpieceDocument | PageDocument;
+export type AllDocumentTypes =
+  | ArtpieceDocument
+  | NavigationDocument
+  | PageDocument;
 /**
  * Primary content in ImagesHero → Primary
  *
@@ -334,6 +371,62 @@ export type LoadingSlice = prismic.SharedSlice<
   "loading",
   LoadingSliceVariation
 >;
+/**
+ * Primary content in NavigationItem → Primary
+ *
+ */
+interface NavigationItemSliceDefaultPrimary {
+  /**
+   * name field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  name: prismic.KeyTextField;
+  /**
+   * Link field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_item.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for NavigationItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavigationItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavigationItemSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *NavigationItem*
+ *
+ */
+type NavigationItemSliceVariation = NavigationItemSliceDefault;
+/**
+ * NavigationItem Shared Slice
+ *
+ * - **API ID**: `navigation_item`
+ * - **Description**: `NavigationItem`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavigationItemSlice = prismic.SharedSlice<
+  "navigation_item",
+  NavigationItemSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -345,6 +438,9 @@ declare module "@prismicio/client" {
     export type {
       ArtpieceDocumentData,
       ArtpieceDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataSlicesSlice,
+      NavigationDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       PageDocument,
@@ -361,6 +457,10 @@ declare module "@prismicio/client" {
       LoadingSliceDefault,
       LoadingSliceVariation,
       LoadingSlice,
+      NavigationItemSliceDefaultPrimary,
+      NavigationItemSliceDefault,
+      NavigationItemSliceVariation,
+      NavigationItemSlice,
     };
   }
 }

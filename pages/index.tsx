@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-function Page({ page }: PageProps) {
+function Page({ page, navBar }: PageProps) {
   const { totalImages, setTotalImages, totalHeroObjects, setTotalHeroObjects } =
     useImageLoadingContext();
 
@@ -45,7 +45,7 @@ function Page({ page }: PageProps) {
   ]);
 
   return (
-    <Layout>
+    <Layout nav={navBar}>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );
@@ -61,11 +61,15 @@ export default memo(Page, arePropsEqual);
 export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", "home");
+  const [navBar, page] = await Promise.all([
+    client.getByUID("navigation", "nav"),
+    client.getByUID("page", "home"),
+  ]);
 
   return {
     props: {
       page,
+      navBar,
     },
   };
 }

@@ -1,0 +1,18 @@
+@import "../main/variables.scss";
+
+.navBar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: rem(15px);
+  padding: rem(10px) rem(10px) rem(10px) rem(10px);
+  position: fixed;
+  top: 0;
+  z-index: 5000;
+
+  &__item {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+  }
+}
