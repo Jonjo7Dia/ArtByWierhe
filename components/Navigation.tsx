@@ -3,6 +3,7 @@ import { NavigationDocument } from "@/prismicio-types";
 import classes from "../styles/component/nav.module.scss";
 import Link from "next/link";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
+import { useRouter } from "next/router";
 
 interface NavigationProps {
   navBar: NavigationDocument;
@@ -11,14 +12,15 @@ interface NavigationProps {
 export default function Navigation({ navBar }: NavigationProps) {
   const [isLoading, setIsLoading] = useState(true);
   const { loadedImages, totalImages } = useImageLoadingContext();
-
+  const { asPath } = useRouter();
+  //   const isActive = slice.primary.link === asPath;
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     if (loadedImages === totalImages && totalImages > 0) {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
-      }, 2500);
+      }, 5000);
     }
 
     return () => {
@@ -27,12 +29,17 @@ export default function Navigation({ navBar }: NavigationProps) {
       }
     };
   }, [loadedImages, totalImages]);
-
-  const navLinks = navBar.data.slices.map((slice: any) => (
+  console.log(asPath);
+  console.log(navBar.data.slices);
+  const navLinks = navBar.data.slices.map((slice: any, index: number) => (
     <Link
-      key={slice.id}
+      key={slice.primary.id}
       href={slice.primary.link}
-      className={classes["navBar__menu-item"]}
+      className={`${classes["navBar__menu-item"]} ${
+        slice.primary.link !== asPath
+          ? classes["navBar__menu-item--inactive"]
+          : ""
+      }`}
     >
       {slice.primary.name}
     </Link>
@@ -41,7 +48,7 @@ export default function Navigation({ navBar }: NavigationProps) {
   const [menuClicked, setMenuClicked] = useState(false);
 
   const headerStyle: React.CSSProperties = {
-    zIndex: isLoading ? "99" : "50",
+    zIndex: isLoading ? "50" : "51",
     // Add any other desired styles here
   };
 

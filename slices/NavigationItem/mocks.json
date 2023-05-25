@@ -9,11 +9,9 @@
 				"type": "Text"
 			},
 			"link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
+				"__TYPE__": "FieldContent",
+				"value": "supper",
+				"type": "Text"
 			}
 		},
 		"items": []

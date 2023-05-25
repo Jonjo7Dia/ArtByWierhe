@@ -387,15 +387,15 @@ interface NavigationItemSliceDefaultPrimary {
    */
   name: prismic.KeyTextField;
   /**
-   * Link field in *NavigationItem → Primary*
+   * link field in *NavigationItem → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: navigation_item.primary.link
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  link: prismic.LinkField;
+  link: prismic.KeyTextField;
 }
 /**
  * Default variation for NavigationItem Slice

@@ -17,8 +17,8 @@
           "config": { "label": "name", "placeholder": "" }
         },
         "link": {
-          "type": "Link",
-          "config": { "label": "Link", "placeholder": "", "select": null }
+          "type": "Text",
+          "config": { "label": "link", "placeholder": "" }
         }
       },
       "items": {}
