@@ -2,7 +2,7 @@
 
 .mainHero {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,6 +11,11 @@
   align-items: center;
   background-color: white;
   opacity: 0;
+
+  @include breakpoint(sm) {
+    height: 100vh;
+  }
+
   &__wrapper {
     width: rem(350px);
     height: rem(300px);

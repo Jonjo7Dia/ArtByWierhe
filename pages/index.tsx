@@ -11,8 +11,7 @@ import { useEffect } from "react";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 function Page({ page, navBar }: PageProps) {
-  const { totalImages, setTotalImages, totalHeroObjects, setTotalHeroObjects } =
-    useImageLoadingContext();
+  const { setTotalImages, setTotalHeroObjects } = useImageLoadingContext();
 
   const getTotalImagesAndHeroObjects = useCallback((array: Array<any>) => {
     let heroObjects = 0;
