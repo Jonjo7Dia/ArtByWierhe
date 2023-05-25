@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  //   background-color: white;
-
+  background-color: white;
+  opacity: 0;
   &__wrapper {
     width: rem(350px);
     height: rem(300px);

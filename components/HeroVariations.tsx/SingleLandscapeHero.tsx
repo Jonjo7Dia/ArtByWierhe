@@ -4,7 +4,7 @@ import { useImageLoadingContext } from "@/contexts/LoadingContext";
 import { useCallback } from "react";
 export default function SingleLandscapeHero({ data, order }: any) {
   const image = data.primary.background_landscape;
-  const { incrementLoadedImages, totalHeroObjects } = useImageLoadingContext();
+  const { incrementLoadedImages } = useImageLoadingContext();
 
   const handleImageLoad = useCallback(() => {
     incrementLoadedImages();

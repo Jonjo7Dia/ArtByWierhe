@@ -7,8 +7,7 @@ export default function TriplePortrait({ data, order }: any) {
   const firstPortait = data.primary.background_image_portrait;
   const secondPortait = data.primary.background_image_portrait_2;
   const thirdPortait = data.primary.background_image_portrait_3;
-  const { incrementLoadedImages, totalHeroObjects } = useImageLoadingContext();
-  const delay = totalHeroObjects * 1000;
+  const { incrementLoadedImages } = useImageLoadingContext();
   const handleImageLoad = useCallback(() => {
     incrementLoadedImages();
   }, [incrementLoadedImages]);

@@ -96,16 +96,28 @@ main {
   0% {
     opacity: 1;
   }
+  80% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInOut {
   0% {
     opacity: 0;
   }
-  100% {
+  20% {
+    opacity: 0;
+  }
+  25% {
     opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
