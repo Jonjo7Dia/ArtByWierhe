@@ -11,8 +11,6 @@ export default function HeroBlock({ slice }: any) {
   const { loadedImages, totalImages, totalHeroObjects } =
     useImageLoadingContext();
   const [isLoading, setIsLoading] = useState(true);
-  const [cycle, setCycle] = useState(1);
-
   const animationStyles: { [key: string]: any } = useRef(
     {} // when condition is not met, opacity 0
   );
@@ -34,6 +32,10 @@ export default function HeroBlock({ slice }: any) {
           animationStyles.current = {
             animation: "fadeOut 2s forwards",
           };
+        } else if (order === 0) {
+          animationStyles.current = {
+            animation: "fadeIn 2s forwards",
+          };
         } else {
           animationStyles.current = {
             animation: "fadeInOut 2s forwards",
@@ -47,18 +49,6 @@ export default function HeroBlock({ slice }: any) {
       }
     };
   }, [loadedImages, totalImages, totalHeroObjects, order]);
-
-  useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval> | null = null;
-    if (!isLoading) {
-      intervalId = setInterval(() => {}, 3000 * totalHeroObjects); // 2000ms display + 1000ms fade out
-    }
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [isLoading, totalHeroObjects]);
 
   return (
     <div
