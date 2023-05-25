@@ -28,8 +28,8 @@ export default function Layout({ children, nav }: LayoutProps) {
     };
   }, [loadedImages, totalImages]);
 
-  const mainStyle = {
-    overflow: "hidden",
+  const mainStyle: React.CSSProperties = {
+    overflowY: isLoading ? "hidden" : "visible",
     // Add any other desired styles here
   };
 
