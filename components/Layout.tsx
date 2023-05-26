@@ -30,6 +30,7 @@ export default function Layout({ children, nav }: LayoutProps) {
 
   const mainStyle: React.CSSProperties = {
     overflowY: isLoading ? "hidden" : "visible",
+    maxHeight: isLoading ? "100vh" : "auto",
     // Add any other desired styles here
   };
 

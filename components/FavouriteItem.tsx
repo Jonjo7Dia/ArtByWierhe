@@ -1,6 +1,7 @@
 import { usePrismicDocumentByUID } from "@prismicio/react";
 import { useState } from "react";
 import classes from "styles/component/favouriteBlock.module.scss";
+import FavouriteItemImage from "./FavouriteItemImage";
 
 export default function FavouriteItem({
   documentType,
@@ -10,6 +11,7 @@ export default function FavouriteItem({
   handleMouseLeave,
 }: any) {
   const [xCoordinate, setXCoordinate] = useState(0);
+  const [showContent, setShowContent] = useState(false);
   const item = usePrismicDocumentByUID(documentType, uid);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLHeadingElement>) => {
@@ -24,13 +26,26 @@ export default function FavouriteItem({
         className={`${classes["favBlock__item-title"]} ${
           isBlurred ? classes["favBlock__item-title--blurred"] : ""
         }`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => {
+          handleMouseEnter();
+          setShowContent(true);
+          console.log(item[0]);
+        }}
+        onMouseLeave={() => {
+          handleMouseLeave();
+          setShowContent(false);
+        }}
         onMouseMove={handleMouseMove}
       >
         {item[0]?.data.art_name}
       </h2>
-      <p>X-coordinate: {xCoordinate}</p> {/* Display the x-coordinate */}
+      <FavouriteItemImage
+        show={showContent}
+        xCoordinate={xCoordinate}
+        description={item[0]?.data.description}
+        orientation={item[0]?.data.type}
+        image={item[0]?.data.image}
+      />
     </div>
   ) : (
     <div></div>
