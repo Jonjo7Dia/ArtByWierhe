@@ -29,11 +29,9 @@ export default function Navigation({ navBar }: NavigationProps) {
       }
     };
   }, [loadedImages, totalImages]);
-  console.log(asPath);
-  console.log(navBar.data.slices);
   const navLinks = navBar.data.slices.map((slice: any, index: number) => (
     <Link
-      key={slice.primary.id}
+      key={index}
       href={slice.primary.link}
       className={`${classes["navBar__menu-item"]} ${
         slice.primary.link !== asPath

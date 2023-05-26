@@ -131,7 +131,10 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = LoadingSlice | ImagesHeroSlice;
+type PageDocumentDataSlicesSlice =
+  | LoadingSlice
+  | ImagesHeroSlice
+  | FavouritesSlice;
 /**
  * Page document from Prismic
  *
@@ -147,6 +150,52 @@ export type AllDocumentTypes =
   | ArtpieceDocument
   | NavigationDocument
   | PageDocument;
+/**
+ * Item in Favourites → Items
+ *
+ */
+export interface FavouritesSliceDefaultItem {
+  /**
+   * ArtPiece field in *Favourites → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: favourites.items[].artpiece
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  artpiece: prismic.RelationField<"artpiece">;
+}
+/**
+ * Default variation for Favourites Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FavouritesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<FavouritesSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Favourites*
+ *
+ */
+type FavouritesSliceVariation = FavouritesSliceDefault;
+/**
+ * Favourites Shared Slice
+ *
+ * - **API ID**: `favourites`
+ * - **Description**: `Favourites`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FavouritesSlice = prismic.SharedSlice<
+  "favourites",
+  FavouritesSliceVariation
+>;
 /**
  * Primary content in ImagesHero → Primary
  *
@@ -445,6 +494,10 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
+      FavouritesSliceDefaultItem,
+      FavouritesSliceDefault,
+      FavouritesSliceVariation,
+      FavouritesSlice,
       ImagesHeroSliceDefaultPrimary,
       ImagesHeroSliceDefault,
       ImagesHeroSliceThreePortraitBackgroundPrimary,

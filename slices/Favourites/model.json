@@ -1,0 +1,27 @@
+{
+  "id": "favourites",
+  "type": "SharedSlice",
+  "name": "Favourites",
+  "description": "Favourites",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "artpiece": {
+          "type": "Link",
+          "config": {
+            "label": "ArtPiece",
+            "select": "document",
+            "customtypes": ["artpiece"]
+          }
+        }
+      }
+    }
+  ]
+}

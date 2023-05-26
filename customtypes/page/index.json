@@ -16,7 +16,8 @@
         "config": {
           "choices": {
             "loading": { "type": "SharedSlice" },
-            "images_hero": { "type": "SharedSlice" }
+            "images_hero": { "type": "SharedSlice" },
+            "favourites": { "type": "SharedSlice" }
           }
         }
       }

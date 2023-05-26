@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
+import { createClient } from "prismicio"; // Update this with your file path
 
 import "../styles/main/global.scss";
 import React from "react";
@@ -12,8 +13,13 @@ interface AppProps {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
+  const prismicClient = createClient(); // Add any additional parameters if needed
+
   return (
-    <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
+    <PrismicProvider
+      client={prismicClient}
+      internalLinkComponent={(props) => <Link {...props} />}
+    >
       <PrismicPreview repositoryName={"artbywierhe"}>
         <ImageLoadingProvider>
           <Component {...pageProps} />
