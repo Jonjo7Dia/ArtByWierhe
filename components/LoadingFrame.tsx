@@ -4,13 +4,14 @@ import classes from "styles/component/loadingFrame.module.scss";
 
 export default function LoadingFrame({ data }: any) {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [showLoading, setShowLoading] = useState(true);
   const { loadedImages, totalImages } = useImageLoadingContext();
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     if (loadedImages === totalImages && totalImages > 0) {
+      setShowLoading(false);
       timeoutId = setTimeout(() => {
         setIsLoading(false);
       }, 2500);
@@ -33,11 +34,11 @@ export default function LoadingFrame({ data }: any) {
         <h1 className={classes["loadingFrame__title"]}>{data.primary.title}</h1>
         <div
           className={`${classes["loadingFrame__shadow"]} ${
-            isLoading && classes["loadingFrame__shadow--loading"]
+            showLoading && classes["loadingFrame__shadow--loading"]
           }`}
         ></div>
       </div>
-      {isLoading && (
+      {showLoading && (
         <div className={classes["loadingFrame__loading"]}>
           <h2 className={classes["loadingFrame__loading-text"]}>Loading</h2>
         </div>
