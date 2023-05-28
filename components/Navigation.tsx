@@ -56,25 +56,30 @@ export default function Navigation({ navBar }: NavigationProps) {
         <div className={classes["navBar__menu-items"]}>{navLinks}</div>
         <div
           className={`${classes["navBar__menu-items"]} ${classes["navBar__menu-items--mobile"]}`}
-          onClick={() => {
-            setMenuClicked(!menuClicked);
-          }}
         >
           <div
-            className={`${classes["navBar__burger"]} ${
-              menuClicked ? classes["navBar__burger__1--changed"] : ""
-            }`}
-          ></div>
-          <div
-            className={`${classes["navBar__burger"]} ${
-              menuClicked ? classes["navBar__burger__2--changed"] : ""
-            }`}
-          ></div>
-          <div
-            className={`${classes["navBar__burger"]} ${
-              menuClicked ? classes["navBar__burger__3--changed"] : ""
-            }`}
-          ></div>
+            className={classes["navBar__button"]}
+            onClick={() => {
+              setMenuClicked(!menuClicked);
+            }}
+          >
+            <div
+              className={`${classes["navBar__burger"]} ${
+                menuClicked ? classes["navBar__burger__1--changed"] : ""
+              }`}
+            ></div>
+            <div
+              className={`${classes["navBar__burger"]} ${
+                menuClicked ? classes["navBar__burger__2--changed"] : ""
+              }`}
+            ></div>
+            <div
+              className={`${classes["navBar__burger"]} ${
+                menuClicked ? classes["navBar__burger__3--changed"] : ""
+              }`}
+            ></div>
+          </div>
+
           <div
             className={`${classes["navBar__menu-items--mobile__items"]} ${
               menuClicked

@@ -4,22 +4,35 @@ import { SliceComponentProps } from "@prismicio/react";
 import FavouriteItem from "./FavouriteItem";
 import FavouriteItemMobile from "./FavouriteItemMobile";
 import { useEffect, useState } from "react";
+
 export type FavouritesProps = SliceComponentProps<Content.FavouritesSlice>;
 
 export default function FavouritesBlock({ slice }: any) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
+
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    setHasMounted(true);
+    setWindowWidth(window.innerWidth);
+
+    const resizeHandler = () => {
       setWindowWidth(window.innerWidth);
-    });
-  });
-  console.log(windowWidth);
+    };
+
+    window.addEventListener("resize", resizeHandler);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", resizeHandler);
+  }, []);
+
+  if (!hasMounted) {
+    return null; // Or return a loading spinner, placeholder, etc.
+  }
+
   return (
     <section className={classes["favBlock"]}>
-      {windowWidth >= 1024 &&
+      {windowWidth >= 1200 &&
         slice.items.map((item: any) => {
           return (
             <FavouriteItem
@@ -34,7 +47,7 @@ export default function FavouritesBlock({ slice }: any) {
             />
           );
         })}
-      {windowWidth < 1024 &&
+      {windowWidth < 1200 &&
         slice.items.map((item: any) => {
           return (
             <FavouriteItemMobile

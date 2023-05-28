@@ -12,11 +12,13 @@
   position: fixed;
   top: 0;
   height: rem(60px);
+  z-index: 1;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     padding-left: rem(40px);
     padding-right: rem(40px);
   }
+
   &__logo {
     width: auto;
     display: flex;
@@ -29,6 +31,7 @@
       text-decoration: none;
       font-size: rem(20px);
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
       @include breakpoint(sm) {
         font-size: rem(32px);
       }
@@ -47,21 +50,19 @@
     }
 
     &--mobile {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
-      gap: rem(4px);
-      position: relative;
       width: 100%;
-      @include breakpoint(sm) {
-        gap: rem(6px);
-      }
       @include breakpoint(md) {
         display: none;
       }
 
       &__items {
+        z-index: 1;
         background-color: white;
         position: absolute;
         display: flex;
@@ -69,10 +70,10 @@
         align-items: center;
         gap: rem(30px);
         height: 100vh;
-        top: 100%;
+        top: rem(-8px);
         right: rem(-260px);
         padding: rem(15px);
-        padding-top: rem(25px);
+        padding-top: rem(60px);
         width: rem(200px);
         transition: 0.4s;
 
@@ -86,8 +87,22 @@
       }
     }
   }
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(4px);
+    @include breakpoint(sm) {
+      gap: rem(6px);
+    }
 
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
   &__burger {
+    position: relative;
+    z-index: 3;
     width: rem(15px);
     height: rem(2px);
     border-radius: rem(2px);
@@ -98,6 +113,7 @@
       width: rem(30px);
       height: rem(3px);
     }
+
     &__1 {
       &--changed {
         transform: translateY(rem(6px)) rotate(45deg);
@@ -130,8 +146,8 @@
     text-decoration: none;
     text-transform: uppercase;
     font-size: rem(20px);
-
-    @include breakpoint(sm) {
+    filter: blur(0);
+    @include breakpoint(md) {
       &--inactive {
         transition: color 0.1s ease-in;
         filter: blur(rem(3px));
