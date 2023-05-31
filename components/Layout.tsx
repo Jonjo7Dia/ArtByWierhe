@@ -30,14 +30,17 @@ export default function Layout({ children, nav }: LayoutProps) {
 
   const mainStyle: React.CSSProperties = {
     overflowY: isLoading ? "hidden" : "visible",
-    maxHeight: isLoading ? "100vh" : "auto",
+    maxHeight: isLoading ? "100vh" : "none",
     // Add any other desired styles here
   };
 
   return (
     <>
       <Navigation navBar={nav} />
-      <main style={mainStyle}>{children}</main>
+      <main style={mainStyle}>
+        <div className={"backgroundBlur"}></div>
+        {children}
+      </main>
     </>
   );
 }

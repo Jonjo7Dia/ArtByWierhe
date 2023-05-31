@@ -11,15 +11,19 @@ export default function FavouriteItem({
   handleMouseLeave,
 }: any) {
   const [xCoordinate, setXCoordinate] = useState(0);
+  const [xCoordinateItem, setXCoordinateItem] = useState(0);
   const [showContent, setShowContent] = useState(false);
   const item = usePrismicDocumentByUID(documentType, uid);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLHeadingElement>) => {
     const x = event.clientX;
     setXCoordinate(x);
+    setXCoordinateItem(x);
     // Do something with the x-coordinate here
   };
-
+  const styles: React.CSSProperties = {
+    transform: `translateX(${xCoordinateItem * 0.05}px)`, // Combine transform values
+  };
   return item[1].state === "loaded" ? (
     <div className={classes["favBlock__item"]}>
       <h2
@@ -29,13 +33,14 @@ export default function FavouriteItem({
         onMouseEnter={() => {
           handleMouseEnter();
           setShowContent(true);
-          console.log(item[0]);
         }}
         onMouseLeave={() => {
           handleMouseLeave();
           setShowContent(false);
+          setXCoordinateItem(0);
         }}
         onMouseMove={handleMouseMove}
+        style={styles}
       >
         {item[0]?.data.art_name}
       </h2>

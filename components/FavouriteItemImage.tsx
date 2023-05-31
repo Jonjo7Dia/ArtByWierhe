@@ -1,6 +1,5 @@
 import classes from "styles/component/favouriteBlock.module.scss";
 import Image from "next/image";
-import { PrismicRichText } from "@prismicio/react";
 export default function FavouriteItemImage({
   show,
   xCoordinate,
@@ -10,7 +9,7 @@ export default function FavouriteItemImage({
 }: any) {
   const styles: React.CSSProperties = {
     opacity: show ? 1 : 0,
-    transform: `translateX(${xCoordinate}px) translateY(-50%)`, // Combine transform values
+    transform: `translateX(${xCoordinate - 450}px) translateY(-50%)`, // Combine transform values
   };
 
   return (
