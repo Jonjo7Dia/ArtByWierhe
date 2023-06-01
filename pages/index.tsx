@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-function Page({ page, navBar }: PageProps) {
+export default function Page({ page, navBar }: PageProps) {
   const { setTotalImages, setTotalHeroObjects } = useImageLoadingContext();
 
   const getTotalImagesAndHeroObjects = useCallback((array: Array<any>) => {
@@ -49,13 +49,6 @@ function Page({ page, navBar }: PageProps) {
     </Layout>
   );
 }
-
-const arePropsEqual = (prevProps: PageProps, nextProps: PageProps): boolean => {
-  // Compare the relevant props to determine equality
-  return prevProps.page.data === nextProps.page.data;
-};
-
-export default memo(Page, arePropsEqual);
 
 export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });

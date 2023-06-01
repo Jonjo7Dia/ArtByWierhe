@@ -170,21 +170,21 @@ a {
   width: 100vw;
   position: fixed;
   z-index: 0;
-  background: rgb(107, 215, 43);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(107, 215, 43, 0.6377144607843137) 0%,
-    rgba(255, 255, 255, 1) 68%
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6377144607843137) 21%,
+    rgba(107, 215, 43, 1) 100%
   );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(107, 215, 43, 0.6377144607843137) 0%,
-    rgba(255, 255, 255, 1) 68%
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6377144607843137) 21%,
+    rgba(107, 215, 43, 1) 100%
   );
-  background: radial-gradient(
-    circle,
-    rgba(107, 215, 43, 0.6377144607843137) 0%,
-    rgba(255, 255, 255, 1) 68%
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.6377144607843137) 21%,
+    rgba(107, 215, 43, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6bd72b",endColorstr="#ffffff",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#6bd72b",GradientType=1);
 }

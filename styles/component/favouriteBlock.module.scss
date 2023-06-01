@@ -9,7 +9,7 @@
   flex-direction: column;
 
   @include breakpoint(sm) {
-    margin-top: 100vh;
+    margin-top: 110vh;
   }
 
   @include breakpoint(lg) {
@@ -73,7 +73,7 @@
 
 .favItemMobile {
   width: 100%;
-
+  position: relative;
   &__parallax {
     min-height: rem(400px);
   }
