@@ -1,5 +1,7 @@
 @import "./variables";
 @import "@fontsource/merriweather";
+@import "@fontsource/inter"; // Defaults to weight 400
+
 /* CSS reset */
 body,
 div,
@@ -166,25 +168,27 @@ a {
 }
 
 .backgroundBlur {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  z-index: 0;
-  background: rgb(255, 255, 255);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.6377144607843137) 21%,
-    rgba(107, 215, 43, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.6377144607843137) 21%,
-    rgba(107, 215, 43, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.6377144607843137) 21%,
-    rgba(107, 215, 43, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#6bd72b",GradientType=1);
+  @include breakpoint(desktop) {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 0;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.6377144607843137) 21%,
+      #16b47c 100%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.6377144607843137) 21%,
+      #16b47c 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.6377144607843137) 21%,
+      #16b47c 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#6bd72b",GradientType=1);
+  }
 }
