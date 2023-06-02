@@ -10,7 +10,7 @@ export default function FavouriteItemMobile({ documentType, uid }: any) {
   const portrait = item[0]?.data.type == "Portrait";
   const width = 1200;
   const height = portrait ? 1600 : 960;
-  const middle = window.innerHeight / 2;
+  const windowHeight = window.innerHeight;
   const [opacityLevel, setOpacityLevel] = useState(0);
   const infoStyle: React.CSSProperties = {
     opacity: opacityLevel,
@@ -19,14 +19,14 @@ export default function FavouriteItemMobile({ documentType, uid }: any) {
   // Initially position the image so its bottom is visible
   const handleOpacity = () => {
     if (imageRef.current) {
+      const element = imageRef.current.getBoundingClientRect();
+      const top = imageRef.current.getBoundingClientRect().top;
+      const bottom = top + element.height;
       const yCoordinate = imageRef.current.getBoundingClientRect().top;
-      if (yCoordinate < middle && yCoordinate > middle - 100) {
-        const opacityPercentage = (middle - yCoordinate) / middle;
-        if (item[0]?.data.art_name.toUpperCase() == "HOLD MY HEART") {
-          console.log(middle, opacityPercentage, yCoordinate);
-        }
+      if (bottom < windowHeight && top > 0) {
+        console.log(bottom);
         setOpacityLevel(1);
-      } else if (yCoordinate < middle - 300 || yCoordinate > middle) {
+      } else if (top < 0 || bottom > windowHeight) {
         setOpacityLevel(0);
       }
     }
@@ -39,16 +39,16 @@ export default function FavouriteItemMobile({ documentType, uid }: any) {
       });
     });
 
-    if (imageRef.current) {
-      observer.observe(imageRef.current);
-    }
-    if (isInView) {
+    const currentImageRef = imageRef.current;
+
+    if (currentImageRef) {
+      observer.observe(currentImageRef);
     }
     window.addEventListener("scroll", handleOpacity);
 
     return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
+      if (currentImageRef) {
+        observer.unobserve(currentImageRef);
       }
       window.removeEventListener("scroll", handleOpacity);
     };
