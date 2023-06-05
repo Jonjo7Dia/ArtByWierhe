@@ -41,7 +41,7 @@ export default function HeroBlock({ slice }: any) {
             animation: "fadeInOut 2s forwards",
           };
         }
-      }, (totalHeroObjects - order + 1) * 2000);
+      }, (totalHeroObjects - order) * 2000);
     }
     return () => {
       if (timeoutId) {
