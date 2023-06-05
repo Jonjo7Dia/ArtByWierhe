@@ -44,7 +44,7 @@ export default function Page({ page, navBar }: PageProps) {
   ]);
 
   return (
-    <Layout nav={navBar}>
+    <Layout nav={navBar} loader={true}>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );

@@ -1,0 +1,69 @@
+@import "../main//variables.scss";
+.artWork {
+  position: relative;
+  width: 100%;
+  max-width: rem(1600px);
+  margin-top: rem(60px);
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  overflow-y: hidden;
+  &__piece {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &-image {
+      width: rem(360px);
+      height: rem(288px);
+      display: flex;
+
+      @include breakpoint(xs) {
+        width: rem(480px);
+        height: rem(384px);
+      }
+
+      @include breakpoint(sm) {
+        width: rem(380px);
+        height: rem(304px);
+      }
+
+      @include breakpoint(md) {
+        width: rem(329px);
+        height: rem(263px);
+      }
+      @include breakpoint(lg) {
+        width: rem(398px);
+        height: rem(318px);
+      }
+
+      @include breakpoint(xl) {
+        width: rem(496px);
+        height: rem(396px);
+      }
+
+      &--portrait {
+        height: rem(480px);
+
+        @include breakpoint(xs) {
+          height: rem(640px);
+        }
+
+        @include breakpoint(sm) {
+          height: (507px);
+        }
+
+        @include breakpoint(md) {
+          height: rem(438px);
+        }
+
+        @include breakpoint(lg) {
+          height: rem(530px);
+        }
+
+        @include breakpoint(xl) {
+          height: rem(661px);
+        }
+      }
+    }
+  }
+}

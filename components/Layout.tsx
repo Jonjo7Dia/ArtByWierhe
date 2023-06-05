@@ -6,9 +6,10 @@ import Navigation from "components/Navigation";
 interface LayoutProps {
   children: React.ReactNode;
   nav: NavigationDocument;
+  loader: boolean;
 }
 
-export default function Layout({ children, nav }: LayoutProps) {
+export default function Layout({ children, nav, loader }: LayoutProps) {
   const [isLoading, setIsLoading] = useState(true);
   const { loadedImages, totalImages } = useImageLoadingContext();
 
@@ -29,8 +30,8 @@ export default function Layout({ children, nav }: LayoutProps) {
   }, [loadedImages, totalImages]);
 
   const mainStyle: React.CSSProperties = {
-    overflowY: isLoading ? "hidden" : "visible",
-    maxHeight: isLoading ? "100vh" : "none",
+    overflowY: isLoading && loader ? "hidden" : "visible",
+    maxHeight: isLoading && loader ? "100vh" : "none",
     // Add any other desired styles here
   };
 
