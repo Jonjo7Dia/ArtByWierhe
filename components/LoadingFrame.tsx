@@ -3,7 +3,6 @@ import { useImageLoadingContext } from "contexts/LoadingContext";
 import classes from "styles/component/loadingFrame.module.scss";
 
 export default function LoadingFrame({ data }: any) {
-  const [isLoading, setIsLoading] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
   const { loadedImages, totalImages } = useImageLoadingContext();
 
@@ -12,9 +11,6 @@ export default function LoadingFrame({ data }: any) {
 
     if (loadedImages === totalImages && totalImages > 0) {
       setShowLoading(false);
-      timeoutId = setTimeout(() => {
-        setIsLoading(false);
-      }, 2500);
     }
 
     return () => {
@@ -27,7 +23,7 @@ export default function LoadingFrame({ data }: any) {
   return (
     <div
       className={`${classes["loadingFrame"]} ${
-        isLoading && classes["loadingFrame--loading"]
+        showLoading && classes["loadingFrame--loading"]
       }`}
     >
       <div className={classes["loadingFrame__text"]}>
