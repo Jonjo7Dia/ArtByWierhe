@@ -134,7 +134,8 @@ interface PageDocumentData {
 type PageDocumentDataSlicesSlice =
   | LoadingSlice
   | ImagesHeroSlice
-  | FavouritesSlice;
+  | FavouritesSlice
+  | ExhibitionBlockSlice;
 /**
  * Page document from Prismic
  *
@@ -150,6 +151,92 @@ export type AllDocumentTypes =
   | ArtpieceDocument
   | NavigationDocument
   | PageDocument;
+/**
+ * Primary content in ExhibitionBlock → Primary
+ *
+ */
+interface ExhibitionBlockSliceDefaultPrimary {
+  /**
+   * Exhibition Name field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.exhibition_name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  exhibition_name: prismic.KeyTextField;
+  /**
+   * Location field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.location
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  location: prismic.KeyTextField;
+  /**
+   * Date field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.date
+   * - **Documentation**: https://prismic.io/docs/core-concepts/date
+   *
+   */
+  date: prismic.DateField;
+  /**
+   * Start Time field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.start_time
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  start_time: prismic.KeyTextField;
+  /**
+   * End Time field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.end_time
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  end_time: prismic.KeyTextField;
+}
+/**
+ * Default variation for ExhibitionBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ExhibitionBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExhibitionBlockSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ExhibitionBlock*
+ *
+ */
+type ExhibitionBlockSliceVariation = ExhibitionBlockSliceDefault;
+/**
+ * ExhibitionBlock Shared Slice
+ *
+ * - **API ID**: `exhibition_block`
+ * - **Description**: `ExhibitionBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ExhibitionBlockSlice = prismic.SharedSlice<
+  "exhibition_block",
+  ExhibitionBlockSliceVariation
+>;
 /**
  * Item in Favourites → Items
  *
@@ -494,6 +581,10 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
+      ExhibitionBlockSliceDefaultPrimary,
+      ExhibitionBlockSliceDefault,
+      ExhibitionBlockSliceVariation,
+      ExhibitionBlockSlice,
       FavouritesSliceDefaultItem,
       FavouritesSliceDefault,
       FavouritesSliceVariation,

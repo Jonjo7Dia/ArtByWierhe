@@ -1,0 +1,39 @@
+{
+  "id": "exhibition_block",
+  "type": "SharedSlice",
+  "name": "ExhibitionBlock",
+  "description": "ExhibitionBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "exhibition_name": {
+          "type": "Text",
+          "config": { "label": "Exhibition Name", "placeholder": "" }
+        },
+        "location": {
+          "type": "Text",
+          "config": { "label": "Location", "placeholder": "" }
+        },
+        "date": {
+          "type": "Date",
+          "config": { "label": "Date", "placeholder": "" }
+        },
+        "start_time": {
+          "type": "Text",
+          "config": { "label": "Start Time", "placeholder": "" }
+        },
+        "end_time": {
+          "type": "Text",
+          "config": { "label": "End Time", "placeholder": "" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

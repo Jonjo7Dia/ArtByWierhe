@@ -2,13 +2,14 @@ import React from "react";
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
 import Layout from "components/Layout";
-import ArtWork from "components/Artwork";
+import Exhibition from "components/Exhibition";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page, navBar }: PageProps) {
+  console.log(page.data.slices);
   return (
     <Layout nav={navBar} loader={false}>
-      <ArtWork data={page} />
+      <Exhibition data={page.data.slices} />
     </Layout>
   );
 }
@@ -18,7 +19,7 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
 
   const [navBar, page] = await Promise.all([
     client.getByUID("navigation", "nav"),
-    client.getAllByType("artpiece"),
+    client.getByUID("page", "exhibition"),
   ]);
 
   return {

@@ -17,7 +17,8 @@
           "choices": {
             "loading": { "type": "SharedSlice" },
             "images_hero": { "type": "SharedSlice" },
-            "favourites": { "type": "SharedSlice" }
+            "favourites": { "type": "SharedSlice" },
+            "exhibition_block": { "type": "SharedSlice" }
           }
         }
       }

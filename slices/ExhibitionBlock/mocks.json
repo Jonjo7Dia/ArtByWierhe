@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"exhibition_name": {
+				"__TYPE__": "FieldContent",
+				"value": "mail",
+				"type": "Text"
+			},
+			"location": {
+				"__TYPE__": "FieldContent",
+				"value": "nuts",
+				"type": "Text"
+			},
+			"date": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2020-05-19"
+			},
+			"start_time": {
+				"__TYPE__": "FieldContent",
+				"value": "collect",
+				"type": "Text"
+			},
+			"end_time": {
+				"__TYPE__": "FieldContent",
+				"value": "refer",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

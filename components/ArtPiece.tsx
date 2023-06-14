@@ -34,6 +34,7 @@ export default function ArtPiece({ data }: any) {
             portrait ? classes["artWork__piece-image--portrait"] : ""
           }`}
           priority
+          blurDataURL={image.url}
         />
         <div
           className={`${classes["artWork__title"]} ${
