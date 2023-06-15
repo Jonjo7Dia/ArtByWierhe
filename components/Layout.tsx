@@ -10,8 +10,10 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, nav, loader }: LayoutProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const { loadedImages, totalImages } = useImageLoadingContext();
+  const { loadedImages, totalImages, showLoadingFrame } =
+    useImageLoadingContext();
+
+  const [isLoading, setIsLoading] = useState(showLoadingFrame);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -42,7 +44,7 @@ export default function Layout({ children, nav, loader }: LayoutProps) {
         <div className={"backgroundBlur"}></div>
         {children}
       </main>
-      <Footer />
+      {!isLoading && <Footer />}
     </>
   );
 }
