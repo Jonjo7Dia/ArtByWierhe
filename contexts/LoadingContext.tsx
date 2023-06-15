@@ -4,6 +4,8 @@ type ImageLoadingContextType = {
   totalImages: number;
   loadedImages: number;
   totalHeroObjects: number;
+  showLoadingFrame: boolean;
+  setShowLoadingFrame: (value: boolean) => void;
   setTotalHeroObjects: (total: number) => void;
   incrementLoadedImages: () => void;
   setTotalImages: (total: number) => void;
@@ -21,6 +23,7 @@ export function ImageLoadingProvider({ children }: ImageLoadingProviderProps) {
   const [totalImages, setTotalImages] = useState(0);
   const [loadedImages, setLoadedImages] = useState(0);
   const [totalHeroObjects, setTotalHeroObjects] = useState(0);
+  const [showLoadingFrame, setShowLoadingFrame] = useState(true);
   const incrementLoadedImages = () => {
     setLoadedImages((prevCount) => prevCount + 1);
   };
@@ -31,9 +34,11 @@ export function ImageLoadingProvider({ children }: ImageLoadingProviderProps) {
         totalImages,
         loadedImages,
         totalHeroObjects,
+        showLoadingFrame,
         setTotalHeroObjects,
         incrementLoadedImages,
         setTotalImages,
+        setShowLoadingFrame,
       }}
     >
       {children}

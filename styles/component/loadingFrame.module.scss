@@ -7,8 +7,10 @@
   width: 100vw;
   height: 100vh;
   z-index: 50;
-  animation: fadeOutBackground 2.5s linear forwards;
 
+  &--animation {
+    animation: fadeOutBackground 2.5s linear forwards;
+  }
   &--loading {
     background-color: white;
     z-index: 100;
@@ -52,7 +54,10 @@
     height: rem(20px);
     border-radius: 50%;
     clip-path: ellipse(70% 20% at 50% 50%);
-    animation: fadeOutShadow 2s linear;
+
+    &--animation {
+      animation: fadeOutShadow 2s linear;
+    }
 
     &--loading {
       animation: glowing 3s infinite;

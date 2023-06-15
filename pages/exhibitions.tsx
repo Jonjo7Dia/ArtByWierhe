@@ -3,9 +3,12 @@ import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
 import Layout from "components/Layout";
 import Exhibition from "components/Exhibition";
+import { useImageLoadingContext } from "@/contexts/LoadingContext";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page, navBar }: PageProps) {
+  const { setShowLoadingFrame } = useImageLoadingContext();
+  setShowLoadingFrame(false);
   return (
     <Layout nav={navBar} loader={false}>
       {page.data.slices.length > 0 && <Exhibition data={page.data.slices} />}

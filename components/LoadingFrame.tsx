@@ -3,8 +3,10 @@ import { useImageLoadingContext } from "contexts/LoadingContext";
 import classes from "styles/component/loadingFrame.module.scss";
 
 export default function LoadingFrame({ data }: any) {
-  const [showLoading, setShowLoading] = useState(true);
-  const { loadedImages, totalImages } = useImageLoadingContext();
+  const { loadedImages, totalImages, showLoadingFrame } =
+    useImageLoadingContext();
+
+  const [showLoading, setShowLoading] = useState(showLoadingFrame);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -23,15 +25,16 @@ export default function LoadingFrame({ data }: any) {
   return (
     <div
       className={`${classes["loadingFrame"]} ${
-        showLoading && classes["loadingFrame--loading"]
-      }`}
+        showLoadingFrame && classes["loadingFrame--animation"]
+      } ${showLoading && classes["loadingFrame--loading"]}`}
     >
       <div className={classes["loadingFrame__text"]}>
         <h1 className={classes["loadingFrame__title"]}>{data.primary.title}</h1>
         <div
           className={`${classes["loadingFrame__shadow"]} ${
-            showLoading && classes["loadingFrame__shadow--loading"]
-          }`}
+            showLoadingFrame && classes["loadingFrame__shadow--animation"]
+          }
+          ${showLoading && classes["loadingFrame__shadow--loading"]}`}
         ></div>
       </div>
       {showLoading && (

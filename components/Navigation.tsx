@@ -10,8 +10,9 @@ interface NavigationProps {
 }
 
 export default function Navigation({ navBar }: NavigationProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const { loadedImages, totalImages } = useImageLoadingContext();
+  const { loadedImages, totalImages, showLoadingFrame } =
+    useImageLoadingContext();
+  const [isLoading, setIsLoading] = useState(showLoadingFrame);
   const { asPath } = useRouter();
   //   const isActive = slice.primary.link === asPath;
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Navigation({ navBar }: NavigationProps) {
     if (loadedImages === totalImages && totalImages > 0) {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
-      }, 5000);
+      }, 2500);
     }
 
     return () => {
