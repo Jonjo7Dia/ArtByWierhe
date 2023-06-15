@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
 import { NavigationDocument } from "@/prismicio-types";
 import Navigation from "components/Navigation";
-
+import Footer from "components/Footer";
 interface LayoutProps {
   children: React.ReactNode;
   nav: NavigationDocument;
@@ -42,6 +42,7 @@ export default function Layout({ children, nav, loader }: LayoutProps) {
         <div className={"backgroundBlur"}></div>
         {children}
       </main>
+      <Footer />
     </>
   );
 }

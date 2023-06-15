@@ -1,0 +1,33 @@
+@import "../main//variables.scss";
+
+.footer-block {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: rem(20px);
+  margin-top: rem(60px);
+  font-family: "Inter";
+  display: flex;
+  justify-content: flex-end;
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(sm) {
+      width: rem(470px);
+    }
+  }
+
+  &__image {
+    width: rem(230px);
+    height: rem(114px);
+
+    @include breakpoint(sm) {
+      width: rem(459px);
+      height: rem(228px);
+    }
+  }
+}
