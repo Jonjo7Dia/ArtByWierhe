@@ -206,6 +206,16 @@ interface ExhibitionBlockSliceDefaultPrimary {
    *
    */
   end_time: prismic.KeyTextField;
+  /**
+   * Image field in *ExhibitionBlock → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: exhibition_block.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
 }
 /**
  * Default variation for ExhibitionBlock Slice

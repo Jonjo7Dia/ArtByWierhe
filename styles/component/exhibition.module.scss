@@ -1,0 +1,29 @@
+@import "../main/variables.scss";
+
+.exhibition {
+  &-block {
+    position: relative;
+    width: 100%;
+    max-width: rem(1400px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: rem(60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &__title {
+      text-transform: uppercase;
+      font-size: rem(24px);
+    }
+
+    &__image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

@@ -1,3 +1,7 @@
+import classes from "styles/component/exhibition.module.scss";
+
+import ExhibitionBlock from "./ExhibitionBlock";
+
 interface ExhibitionBlock {
   variation: string;
   version: string;
@@ -8,10 +12,20 @@ interface ExhibitionBlock {
     date: string;
     start_time: string;
     end_time: string;
+    image: {
+      dimensions: { width: number; height: number };
+      url: string;
+      alt: string;
+    };
   };
   id: string;
   slice_type: string;
   slice_label: null | string;
+}
+
+interface ExhibitionGroup {
+  title: string;
+  exhibitions: ExhibitionBlock[];
 }
 
 export default function Exhibition({ data }: any) {
@@ -29,15 +43,34 @@ export default function Exhibition({ data }: any) {
   );
 
   // Find the closest upcoming exhibition
-  const closestExhibition: ExhibitionBlock | undefined = upcomingExhibitions[0];
+  let closestExhibition: ExhibitionBlock[] =
+    upcomingExhibitions.length > 0 ? [upcomingExhibitions[0]] : [];
 
   // Remove the closest exhibition from the upcoming exhibitions
   if (upcomingExhibitions.length > 0) {
     upcomingExhibitions = upcomingExhibitions.slice(1);
   }
-  console.log(sortedData);
-  console.log(upcomingExhibitions);
-  console.log(pastExhibitions);
-  console.log(closestExhibition);
-  return <div></div>;
+
+  // Create exhibition groups
+  const exhibitionGroups: ExhibitionGroup[] = [
+    { title: "Next Exhibition", exhibitions: closestExhibition },
+    { title: "Upcoming Exhibitions", exhibitions: upcomingExhibitions },
+    { title: "Past Exhibitions", exhibitions: pastExhibitions },
+  ];
+
+  return (
+    <>
+      {exhibitionGroups.map((group: ExhibitionGroup) => {
+        if (group.exhibitions.length > 0) {
+          return (
+            <ExhibitionBlock
+              key={group.title}
+              title={group.title}
+              exhibitions={group.exhibitions}
+            />
+          );
+        }
+      })}
+    </>
+  );
 }

@@ -31,6 +31,10 @@
         "end_time": {
           "type": "Text",
           "config": { "label": "End Time", "placeholder": "" }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
         }
       },
       "items": {}

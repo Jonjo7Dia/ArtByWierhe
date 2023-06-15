@@ -9,7 +9,7 @@ export default function Page({ page, navBar }: PageProps) {
   console.log(page.data.slices);
   return (
     <Layout nav={navBar} loader={false}>
-      <Exhibition data={page.data.slices} />
+      {page.data.slices.length > 0 && <Exhibition data={page.data.slices} />}
     </Layout>
   );
 }
