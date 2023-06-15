@@ -49,12 +49,21 @@ export default function ExhibitionItem({ data }: ExhibitionProps) {
           )}
       </div>
       <div className={classes["exhibition-block__content"]}>
-        <h3>{primaryData.exhibition_name}</h3>
-        <h4>Location: {primaryData.location}</h4>
-        <h4>Date: {primaryData.date}</h4>
-        <h4>
-          Time: {primaryData.start_time} - {primaryData.end_time}
-        </h4>
+        <h3 className={classes["exhibition-block__name"]}>
+          {primaryData.exhibition_name}
+        </h3>
+
+        <div className={classes["exhibition-block__details"]}>
+          <h4>{primaryData.date}</h4>
+        </div>
+        <div className={classes["exhibition-block__details"]}>
+          <h4>
+            {primaryData.start_time} - {primaryData.end_time}
+          </h4>
+        </div>
+        <div className={classes["exhibition-block__details"]}>
+          <h4>{primaryData.location}</h4>
+        </div>
       </div>
     </div>
   );
