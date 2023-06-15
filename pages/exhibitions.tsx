@@ -6,7 +6,6 @@ import Exhibition from "components/Exhibition";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page, navBar }: PageProps) {
-  console.log(page.data.slices);
   return (
     <Layout nav={navBar} loader={false}>
       {page.data.slices.length > 0 && <Exhibition data={page.data.slices} />}

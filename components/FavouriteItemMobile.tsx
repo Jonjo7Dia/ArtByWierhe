@@ -22,7 +22,6 @@ export default function FavouriteItemMobile({ documentType, uid }: any) {
       const top = imageRef.current.getBoundingClientRect().top;
       const bottom = top + 200;
       if (bottom < windowHeight && top > 0) {
-        console.log(bottom);
         setOpacityLevel(1);
       } else if (top < 0 || bottom > windowHeight) {
         setOpacityLevel(0);

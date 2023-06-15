@@ -2,7 +2,6 @@ import classes from "styles/component/artWork.module.scss";
 import ArtPiece from "./ArtPiece";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 export default function ArtWork({ data }: any) {
-  console.log(data);
   return (
     <section className={classes["artWork"]}>
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 2, 992: 3 }}>
