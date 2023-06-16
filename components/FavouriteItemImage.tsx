@@ -1,5 +1,6 @@
 import classes from "styles/component/favouriteBlock.module.scss";
 import Image from "next/image";
+import { PrismicRichText } from "@prismicio/react";
 export default function FavouriteItemImage({
   show,
   xCoordinate,
@@ -23,9 +24,7 @@ export default function FavouriteItemImage({
         )}
       </div>
       <div className={classes["favBlock__description"]}>
-        <p className={classes["favBlock__description-text"]}>
-          {description[0].text}{" "}
-        </p>
+        <PrismicRichText field={description} />
       </div>
     </div>
   );

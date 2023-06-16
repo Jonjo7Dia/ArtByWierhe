@@ -48,7 +48,7 @@ export default function ArtPiece({ data }: any) {
         <ArtDetails
           closeModal={showDetailsHandler}
           image={data.image}
-          description={data.description[0].text}
+          description={data.description}
           title={data.art_name}
           type={data.type}
         />

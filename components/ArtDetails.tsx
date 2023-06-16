@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import classes from "styles/component/artWork.module.scss";
 import Image from "next/image";
+import { PrismicRichText } from "@prismicio/react";
+
 export default function ArtDetails({
   closeModal,
   image,
@@ -50,7 +52,7 @@ export default function ArtDetails({
         </div>
         <div className={classes["artDetails__info"]}>
           <h2 className={classes["artDetails__title"]}>{title}</h2>
-          <p className={classes["artDetails__description"]}>{description}</p>
+          <PrismicRichText field={description} />
         </div>
       </div>
     </div>

@@ -216,9 +216,22 @@
       height: auto;
       justify-content: center;
       padding-bottom: 0;
-      padding-left: 0;
       padding-right: rem(60px);
       overflow: hidden;
+    }
+
+    & > p {
+      font-family: "Inter";
+      text-align: center;
+      font-size: rem(18px);
+      line-height: rem(25px);
+
+      @include breakpoint(sm) {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+      }
     }
   }
 
@@ -252,20 +265,6 @@
       @include breakpoint(md) {
         display: none;
       }
-    }
-  }
-
-  &__description {
-    font-family: "Inter";
-    text-align: center;
-    font-size: rem(18px);
-    line-height: rem(25px);
-
-    @include breakpoint(sm) {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      text-align: left;
     }
   }
 
