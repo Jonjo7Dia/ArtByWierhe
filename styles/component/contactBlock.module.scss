@@ -1,0 +1,100 @@
+@import "../main//variables.scss";
+
+.contact-block {
+  width: 100%;
+  max-width: rem(1400px);
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__hero {
+    padding-top: rem(70px);
+    &-image {
+      max-width: 100%;
+      object-fit: contain;
+      height: max-content;
+      max-height: rem(600px);
+    }
+  }
+
+  &__contact {
+    padding: rem(20px);
+    &-name {
+      width: 100%;
+      text-align: center;
+
+      font-size: rem(32px);
+      text-transform: uppercase;
+      letter-spacing: rem(5px);
+
+      @include breakpoint(md) {
+        font-size: rem(48px);
+      }
+    }
+    &-socials {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding-top: rem(20px);
+    }
+
+    &-social {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: rem(10px);
+    }
+
+    &-logo {
+      width: rem(30px);
+      height: rem(30px);
+
+      @include breakpoint(md) {
+        width: rem(50px);
+        height: rem(50px);
+      }
+    }
+
+    &-link {
+      color: black;
+      font-family: "Inter";
+      text-decoration: none;
+      font-size: rem(16px);
+
+      @include breakpoint(md) {
+        font-size: rem(18px);
+      }
+    }
+  }
+
+  &__about {
+    padding: rem(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-description {
+      width: 100%;
+      font-family: "Inter";
+      max-width: rem(768px);
+      & > p {
+        margin-bottom: rem(16px);
+        line-height: rem(30px);
+        font-size: rem(16px);
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        @include breakpoint(md) {
+          font-size: rem(18px);
+          line-height: rem(36px);
+        }
+      }
+    }
+  }
+}
