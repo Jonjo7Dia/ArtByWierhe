@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"name": {
+				"__TYPE__": "FieldContent",
+				"value": "great",
+				"type": "Text"
+			},
+			"picture": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+					"width": 5243,
+					"height": 3495
+				},
+				"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+				"width": 5243,
+				"height": 3495,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit qui quis eu. Tempor irure nisi cupidatat aliqua ad est eiusmod irure sint. Aute reprehenderit tempor adipisicing reprehenderit quis."
+						}
+					}
+				]
+			},
+			"instagram_link": {
+				"__TYPE__": "FieldContent",
+				"value": "where",
+				"type": "Text"
+			},
+			"email_link": {
+				"__TYPE__": "FieldContent",
+				"value": "sale",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -135,7 +135,8 @@ type PageDocumentDataSlicesSlice =
   | LoadingSlice
   | ImagesHeroSlice
   | FavouritesSlice
-  | ExhibitionBlockSlice;
+  | ExhibitionBlockSlice
+  | ContactBlockSlice;
 /**
  * Page document from Prismic
  *
@@ -151,6 +152,92 @@ export type AllDocumentTypes =
   | ArtpieceDocument
   | NavigationDocument
   | PageDocument;
+/**
+ * Primary content in ContactBlock → Primary
+ *
+ */
+interface ContactBlockSliceDefaultPrimary {
+  /**
+   * Name field in *ContactBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_block.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  name: prismic.KeyTextField;
+  /**
+   * Picture field in *ContactBlock → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_block.primary.picture
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  picture: prismic.ImageField<never>;
+  /**
+   * Description field in *ContactBlock → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_block.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Instagram Link field in *ContactBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_block.primary.instagram_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  instagram_link: prismic.KeyTextField;
+  /**
+   * email_link field in *ContactBlock → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_block.primary.email_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  email_link: prismic.KeyTextField;
+}
+/**
+ * Default variation for ContactBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactBlockSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ContactBlock*
+ *
+ */
+type ContactBlockSliceVariation = ContactBlockSliceDefault;
+/**
+ * ContactBlock Shared Slice
+ *
+ * - **API ID**: `contact_block`
+ * - **Description**: `ContactBlock`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactBlockSlice = prismic.SharedSlice<
+  "contact_block",
+  ContactBlockSliceVariation
+>;
 /**
  * Primary content in ExhibitionBlock → Primary
  *
@@ -591,6 +678,10 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
+      ContactBlockSliceDefaultPrimary,
+      ContactBlockSliceDefault,
+      ContactBlockSliceVariation,
+      ContactBlockSlice,
       ExhibitionBlockSliceDefaultPrimary,
       ExhibitionBlockSliceDefault,
       ExhibitionBlockSliceVariation,

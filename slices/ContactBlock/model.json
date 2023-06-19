@@ -1,0 +1,44 @@
+{
+  "id": "contact_block",
+  "type": "SharedSlice",
+  "name": "ContactBlock",
+  "description": "ContactBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "picture": {
+          "type": "Image",
+          "config": { "label": "Picture", "constraint": {}, "thumbnails": [] }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "instagram_link": {
+          "type": "Text",
+          "config": { "label": "Instagram Link", "placeholder": "" }
+        },
+        "email_link": {
+          "type": "Text",
+          "config": { "label": "email_link", "placeholder": "" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

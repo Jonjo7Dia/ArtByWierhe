@@ -18,7 +18,8 @@
             "loading": { "type": "SharedSlice" },
             "images_hero": { "type": "SharedSlice" },
             "favourites": { "type": "SharedSlice" },
-            "exhibition_block": { "type": "SharedSlice" }
+            "exhibition_block": { "type": "SharedSlice" },
+            "contact_block": { "type": "SharedSlice" }
           }
         }
       }
