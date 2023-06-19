@@ -14,6 +14,9 @@ export default function Layout({ children, nav, loader }: LayoutProps) {
     useImageLoadingContext();
 
   const [isLoading, setIsLoading] = useState(showLoadingFrame);
+  useEffect(() => {
+    setIsLoading(showLoadingFrame);
+  }, [showLoadingFrame]);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;

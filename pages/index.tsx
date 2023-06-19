@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { useCallback } from "react";
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
 import Layout from "components/Layout";

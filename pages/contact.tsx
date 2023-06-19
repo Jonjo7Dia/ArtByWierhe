@@ -2,19 +2,21 @@ import React, { useEffect } from "react";
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
 import Layout from "components/Layout";
-import ArtWork from "components/Artwork";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../slices";
+
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page, navBar }: PageProps) {
   const { setShowLoadingFrame } = useImageLoadingContext();
-
   useEffect(() => {
     setShowLoadingFrame(false);
-  }, []);
+  }, []); // Empty dependency array ensures this runs once after initial render
+
   return (
     <Layout nav={navBar} loader={false}>
-      <ArtWork data={page} />
+      <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );
 }
@@ -24,7 +26,7 @@ export async function getStaticProps({ previewData }: GetStaticPropsContext) {
 
   const [navBar, page] = await Promise.all([
     client.getByUID("navigation", "nav"),
-    client.getAllByType("artpiece"),
+    client.getByUID("page", "contact"),
   ]);
 
   return {
