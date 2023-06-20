@@ -17,10 +17,22 @@ export default function FavouriteItemImage({
     <div className={classes["favBlock__content"]} style={styles}>
       <div className={classes["favBlock__image"]}>
         {orientation === "Portrait" && (
-          <Image src={image.url} alt={image.alt} height={600} width={450} />
+          <Image
+            src={image.url}
+            alt={image.alt}
+            height={600}
+            width={450}
+            className={classes["favBlock__img"]}
+          />
         )}
         {orientation === "Landscape" && (
-          <Image src={image.url} alt={image.alt} height={420} width={455} />
+          <Image
+            src={image.url}
+            alt={image.alt}
+            height={420}
+            width={455}
+            className={`${classes["favBlock__img"]}`}
+          />
         )}
       </div>
       <div className={classes["favBlock__description"]}>

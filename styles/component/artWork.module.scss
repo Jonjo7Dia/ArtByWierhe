@@ -11,62 +11,13 @@
   &__piece {
     width: 100%;
     display: flex;
-    justify-content: center;
+
     position: relative;
     overflow: hidden;
 
     &-image {
-      width: rem(360px);
-      height: rem(288px);
-      display: flex;
-
-      @include breakpoint(xs) {
-        width: rem(480px);
-        height: rem(384px);
-      }
-
-      @include breakpoint(sm) {
-        width: rem(380px);
-        height: rem(304px);
-      }
-
-      @include breakpoint(md) {
-        width: rem(329px);
-        height: rem(263px);
-      }
-      @include breakpoint(lg) {
-        width: rem(398px);
-        height: rem(318px);
-      }
-
-      @include breakpoint(xl) {
-        width: rem(496px);
-        height: rem(396px);
-      }
-
-      &--portrait {
-        height: rem(480px);
-
-        @include breakpoint(xs) {
-          height: rem(640px);
-        }
-
-        @include breakpoint(sm) {
-          height: (507px);
-        }
-
-        @include breakpoint(md) {
-          height: rem(438px);
-        }
-
-        @include breakpoint(lg) {
-          height: rem(530px);
-        }
-
-        @include breakpoint(xl) {
-          height: rem(661px);
-        }
-      }
+      max-width: 100%;
+      height: max-content;
     }
   }
 
@@ -270,39 +221,32 @@
 
   &__image {
     width: rem(360px);
-    height: rem(288px);
+    height: max-content;
     display: flex;
 
     @include breakpoint(sm) {
       width: rem(380px);
-      height: rem(304px);
     }
 
     @include breakpoint(md) {
       width: rem(450px);
-      height: rem(360px);
     }
     @include breakpoint(lg) {
       width: rem(500px);
-      height: rem(400px);
     }
 
     &--portrait {
       width: rem(270px);
-      height: rem(360px);
 
       @include breakpoint(sm) {
         width: rem(345px);
-        height: rem(460px);
       }
 
       @include breakpoint(md) {
         width: rem(328px);
-        height: rem(438px);
       }
 
       @include breakpoint(lg) {
-        height: rem(530px);
         width: rem(397px);
       }
     }
