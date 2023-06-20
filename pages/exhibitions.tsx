@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { createClient } from "../prismicio";
 import Layout from "components/Layout";
@@ -8,9 +8,11 @@ type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Page({ page, navBar }: PageProps) {
   const { setShowLoadingFrame } = useImageLoadingContext();
-  setShowLoadingFrame(false);
+  useEffect(() => {
+    setShowLoadingFrame(false);
+  }, []);
   return (
-    <Layout nav={navBar} loader={false}>
+    <Layout nav={navBar} loader={false} seo={page.data}>
       {page.data.slices.length > 0 && <Exhibition data={page.data.slices} />}
     </Layout>
   );

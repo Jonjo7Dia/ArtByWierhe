@@ -126,6 +126,50 @@ interface PageDocumentData {
    *
    */
   slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+  /**
+   * Page Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.page_title
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  page_title: prismic.KeyTextField;
+  /**
+   * Page Description field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.page_description
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  page_description: prismic.RichTextField;
+  /**
+   * Site Url field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.site_url
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  site_url: prismic.KeyTextField;
+  /**
+   * Og Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.og_image
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  og_image: prismic.ImageField<never>;
 }
 /**
  * Slice for *Page → Slice Zone*

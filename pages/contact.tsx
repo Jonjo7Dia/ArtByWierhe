@@ -15,7 +15,7 @@ export default function Page({ page, navBar }: PageProps) {
   }, []); // Empty dependency array ensures this runs once after initial render
 
   return (
-    <Layout nav={navBar} loader={false}>
+    <Layout nav={navBar} loader={false} seo={page.data}>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );

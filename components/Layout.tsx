@@ -3,13 +3,15 @@ import { useImageLoadingContext } from "@/contexts/LoadingContext";
 import { NavigationDocument } from "@/prismicio-types";
 import Navigation from "components/Navigation";
 import Footer from "components/Footer";
+import SEO from "components/SEO";
 interface LayoutProps {
   children: React.ReactNode;
   nav: NavigationDocument;
   loader: boolean;
+  seo: any;
 }
 
-export default function Layout({ children, nav, loader }: LayoutProps) {
+export default function Layout({ children, nav, loader, seo }: LayoutProps) {
   const { loadedImages, totalImages, showLoadingFrame } =
     useImageLoadingContext();
 
@@ -42,6 +44,7 @@ export default function Layout({ children, nav, loader }: LayoutProps) {
 
   return (
     <>
+      <SEO data={seo} />
       <Navigation navBar={nav} />
       <main style={mainStyle}>
         <div className={"backgroundBlur"}></div>

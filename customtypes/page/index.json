@@ -23,6 +23,29 @@
           }
         }
       }
+    },
+    "SEO": {
+      "page_title": {
+        "type": "Text",
+        "config": { "label": "Page Title", "placeholder": "" }
+      },
+      "page_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Page Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "site_url": {
+        "type": "Text",
+        "config": { "label": "Site Url", "placeholder": "" }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": { "label": "Og Image", "constraint": {}, "thumbnails": [] }
+      }
     }
   }
 }

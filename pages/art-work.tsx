@@ -6,15 +6,15 @@ import ArtWork from "components/Artwork";
 import { useImageLoadingContext } from "@/contexts/LoadingContext";
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-export default function Page({ page, navBar }: PageProps) {
+export default function Page({ page, navBar, artpieces }: PageProps) {
   const { setShowLoadingFrame } = useImageLoadingContext();
 
   useEffect(() => {
     setShowLoadingFrame(false);
   }, []);
   return (
-    <Layout nav={navBar} loader={false}>
-      <ArtWork data={page} />
+    <Layout nav={navBar} loader={false} seo={page.data}>
+      <ArtWork data={artpieces} />
     </Layout>
   );
 }
@@ -22,15 +22,17 @@ export default function Page({ page, navBar }: PageProps) {
 export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
 
-  const [navBar, page] = await Promise.all([
+  const [navBar, artpieces, page] = await Promise.all([
     client.getByUID("navigation", "nav"),
     client.getAllByType("artpiece"),
+    client.getByUID("page", "art-work"),
   ]);
 
   return {
     props: {
-      page,
       navBar,
+      artpieces,
+      page,
     },
   };
 }
