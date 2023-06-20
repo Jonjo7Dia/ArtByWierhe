@@ -3,14 +3,14 @@ import Head from "next/head";
 export default function SEO({ data }: any) {
   return (
     <Head>
-      <title key="title">{data.page_title}</title>
+      <title key="title">Art by Wiehre</title>
       <meta
         key="description"
         name="description"
         content={data.page_description[0].text}
       />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:title" property="og:title" content={data.page_title} />
+      <meta key="og:title" property="og:title" content={"Art by Wiehre"} />
       <meta
         key="og:description"
         property="og:description"
