@@ -14,7 +14,7 @@ export default function SEO({ data }: any) {
       <meta
         key="og:description"
         property="og:description"
-        content={data.page_description}
+        content={data.page_description[0].text}
       />
       <meta key="og:image" property="og:image" content={data.og_image.url} />
       <meta key="og:url" property="og:url" content={data.site_url} />
