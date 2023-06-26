@@ -12,6 +12,7 @@ export default function Page({ page, navBar }: PageProps) {
   const { setShowLoadingFrame } = useImageLoadingContext();
   useEffect(() => {
     setShowLoadingFrame(false);
+    // eslint-disable-next-line
   }, []); // Empty dependency array ensures this runs once after initial render
 
   return (

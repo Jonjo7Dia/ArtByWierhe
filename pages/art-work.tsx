@@ -11,6 +11,7 @@ export default function Page({ page, navBar, artpieces }: PageProps) {
 
   useEffect(() => {
     setShowLoadingFrame(false);
+    // eslint-disable-next-line
   }, []);
   return (
     <Layout nav={navBar} loader={false} seo={page.data}>
