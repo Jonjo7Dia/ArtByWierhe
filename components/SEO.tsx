@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 export default function SEO({ data }: any) {
   return (
     <Head>
@@ -18,6 +17,7 @@ export default function SEO({ data }: any) {
       />
       <meta key="og:image" property="og:image" content={data.og_image.url} />
       <meta key="og:url" property="og:url" content={data.site_url} />
+      <link rel="icon" href="/favicon.ico" />
     </Head>
   );
 }
