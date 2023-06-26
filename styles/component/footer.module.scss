@@ -24,10 +24,5 @@
   &__image {
     width: rem(230px);
     height: rem(114px);
-
-    @include breakpoint(sm) {
-      width: rem(459px);
-      height: rem(228px);
-    }
   }
 }

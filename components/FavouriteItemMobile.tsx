@@ -1,4 +1,4 @@
-import { usePrismicDocumentByUID } from "@prismicio/react";
+import { PrismicRichText, usePrismicDocumentByUID } from "@prismicio/react";
 import { useEffect, useRef, useState } from "react";
 import classes from "styles/component/favouriteBlock.module.scss";
 import Image from "next/image";
@@ -75,7 +75,7 @@ export default function FavouriteItemMobile({ documentType, uid }: any) {
             {item[0]?.data.art_name}
           </h2>
           <p className={classes["favItemMobile__info-description"]}>
-            {item[0]?.data.description[0].text}
+            <PrismicRichText field={item[0]?.data.description} />
           </p>
         </div>
       </div>

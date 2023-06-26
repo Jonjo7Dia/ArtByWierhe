@@ -10,6 +10,8 @@
 
   &__hero {
     padding-top: rem(70px);
+    display: flex;
+    justify-content: center;
     &-image {
       max-width: 100%;
       object-fit: contain;
