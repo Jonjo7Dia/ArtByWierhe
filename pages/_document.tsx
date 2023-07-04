@@ -11,7 +11,7 @@ export default function Document() {
         <script
           async
           defer
-          src="https://static.cdn.prismic.io/prismic.js?new=true&repo=prismic-cms-jonjo7dia"
+          src="https://artbyweirhe.cdn.prismic.io/api/v2"
         ></script>
       </Head>
       <body>
